@@ -69,6 +69,7 @@ export function useSpinePlayer(
                     skin: "Normal",
                     animation: defaultAnim,
                     showControls: false,
+                    showLoading: false,
                     preserveDrawingBuffer: false,
 
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
