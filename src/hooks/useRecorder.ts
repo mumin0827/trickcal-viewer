@@ -20,7 +20,8 @@ export function useRecorder(
     const loadFfmpeg = async () => {
         if (ffmpegRef.current) return ffmpegRef.current;
         const ffmpeg = new FFmpeg();
-        const baseURL = RESOURCE_PATHS.LIB.FFMPEG;
+        // Cloudflare Pages 25MB 제한 우회를 위해 CDN 사용
+        const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm';
         
         if (!window.crossOriginIsolated) {
              console.error("SharedArrayBuffer requires COOP/COEP headers.");
