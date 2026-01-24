@@ -4,7 +4,6 @@ import { saveAs } from 'file-saver';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { fetchFile, toBlobURL } from '@ffmpeg/util';
 import type { Character } from '../types';
-import { RESOURCE_PATHS } from '../routers/paths';
 
 export function useRecorder(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
