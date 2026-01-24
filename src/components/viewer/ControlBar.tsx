@@ -100,11 +100,15 @@ const ControlBar: React.FC<ControlBarProps> = ({
                         onChange={(e) => onSeek(parseFloat(e.target.value))}
                         className="timeline-slider tc-slider"
                         style={{ "--p": `${percent}%` } as React.CSSProperties}
-                        onPointerDown={onScrubStart}
-                        onPointerUp={onScrubEnd}
-                        onPointerCancel={onScrubEnd}
-                        onMouseDown={onScrubStart}
-                        onMouseUp={onScrubEnd}
+                        onPointerDown={(e) => {
+                            if (e.button === 0) onScrubStart();
+                        }}
+                        onPointerUp={(e) => {
+                            if (e.button === 0) onScrubEnd();
+                        }}
+                        onPointerCancel={(e) => {
+                            if (e.button === 0) onScrubEnd();
+                        }}
                         onTouchStart={onScrubStart}
                         onTouchEnd={onScrubEnd}
                     />

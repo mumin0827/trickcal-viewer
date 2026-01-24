@@ -207,17 +207,11 @@ export function useSpinePlayer(
     }, []);
 
     const handleScrubStart = useCallback(() => {
-        if (!playerInstance.current) return;
         isScrubbingRef.current = true;
-        playerInstance.current.paused = true;
-        setIsPlaying(false);
     }, []);
 
     const handleScrubEnd = useCallback(() => {
-        if (!playerInstance.current) return;
         isScrubbingRef.current = false;
-        playerInstance.current.paused = false;
-        setIsPlaying(true);
     }, []);
 
     const handleSeek = useCallback((time: number) => {
