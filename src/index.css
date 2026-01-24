@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "ONE Mobile POP";
-  src: url("public/font/ONE Mobile POP.ttf") format("truetype");
+  src: url("/font/ONE Mobile POP.ttf") format("truetype"),
+       url("/font/ONE Mobile POP OTF.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
