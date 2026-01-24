@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ONE Mobile POP";
+  src: url("public/font/ONE Mobile POP.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  /* --- Core Colors (Light Default) --- */
+  --tc-bg: #eef7d6;
+  --tc-panel: #f8ffe9;
+  --tc-green: #7FC043;
+  --tc-green-2: #A3DF72;
+  --tc-green-dark: #4E8E2C;
+
+  --tc-line-soft: rgba(127, 192, 67, 0.35);
+  --tc-shadow: rgba(0, 0, 0, 0.12);
+
+  /* Shadows */
+  --tc-card-shadow: 0 6px 0 rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.1);
+  --tc-btn-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  --tc-btn-active: 0 2px 0 rgba(0, 0, 0, 0.1);
+
+  /* --- Semantic Theme Variables (Light) --- */
+  --header-bg: rgba(250, 255, 238, 0.95);
+  --header-border: rgba(127, 192, 67, 0.18);
+
+  --text-main: #333333;
+  --text-sub: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.4);
+
+  --card-bg-start: #ffffff;
+  --card-bg-end: #f1f9db;
+
+  --controls-bg-start: #f8ffe9;
+  --controls-bg-end: #e6f4c5;
+
+  --btn-bg: #ffffff;
+  --btn-border: rgba(0, 0, 0, 0.08);
+  --btn-text: #333333;
+
+  --input-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+
+  --modal-bg-start: #f8ffe9;
+  --modal-bg-end: #e9f6c7;
+
+  --char-item-bg: #ffffff;
+  --char-item-border: rgba(0, 0, 0, 0.05);
+  --char-img-bg: #ffffff;
+}
+
+:root.dark {
+  /* --- Core Colors Override (Dark) --- */
+  --tc-bg: #121212;
+  --tc-panel: #1e1e1e;
+  --tc-green: #6da63a;
+  --tc-green-2: #3a5c20;
+  --tc-green-dark: #8cc461;
+
+  --tc-line-soft: rgba(140, 196, 97, 0.2);
+  --tc-shadow: rgba(0, 0, 0, 0.4);
+
+  --tc-card-shadow: 0 6px 0 rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.4);
+  --tc-btn-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+  --tc-btn-active: 0 2px 0 rgba(0, 0, 0, 0.3);
+
+  /* --- Semantic Theme Variables (Dark) --- */
+  --header-bg: rgba(30, 30, 30, 0.95);
+  --header-border: rgba(255, 255, 255, 0.1);
+
+  --text-main: #e0e0e0;
+  --text-sub: rgba(255, 255, 255, 0.6);
+  --text-disabled: rgba(255, 255, 255, 0.4);
+
+  --card-bg-start: #2a2a2a;
+  --card-bg-end: #1a1a1a;
+
+  --controls-bg-start: #2c2c2c;
+  --controls-bg-end: #252525;
+
+  --btn-bg: #333333;
+  --btn-border: rgba(255, 255, 255, 0.1);
+  --btn-text: #e0e0e0;
+
+  --input-bg: #333333;
+  --dropdown-bg: #2c2c2c;
+
+  --modal-bg-start: #2c2c2c;
+  --modal-bg-end: #1e1e1e;
+
+  --char-item-bg: #333333;
+  --char-item-border: rgba(255, 255, 255, 0.1);
+  --char-img-bg: #2a2a2a;
+}
+
+html, body, #root {
+  font-family: "ONE Mobile POP", sans-serif;
+  color: var(--text-main);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  transition: color 0.3s ease;
+}
+
+html, body {
+  background-color: var(--tc-bg);
+}
+
+#root {
+  background-color: var(--tc-bg);
+  position: relative;
+  isolation: isolate;
+  transition: background-color 0.3s;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* Image drag prevention */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* --- Previous index.css Content --- */
+
+/* Theme Toggle */
+.theme-toggle {
+    padding: 0.5rem;
+    border-radius: 9999px; /* rounded-full */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s, background-color 0.2s;
+    background-color: transparent;
+}
+
+.dark .theme-toggle {
+    color: #e4e4e7; /* zinc-200 */
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.dark .theme-toggle:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+}
+
+@keyframes jelly-jump {
+    0% { transform: scale(1, 1) translateY(0); }
+    25% { transform: scale(1.25, 0.75) translateY(0); }
+    50% { transform: scale(0.85, 1.15) translateY(-20px); }
+    65% { transform: scale(1.05, 0.95) translateY(0); }
+    75% { transform: scale(0.95, 1.05) translateY(0); }
+    100% { transform: scale(1, 1) translateY(0); }
+}
+
+.animate-jelly {
+    animation: jelly-jump 0.8s infinite;
+}
+
+.loading-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tc-bg);
+    backdrop-filter: blur(4px);
+    z-index: 500;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, background-color 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-container.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loading-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.loading-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(var(--tc-btn-shadow));
+}
+
+.loading-text {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: bold;
+}

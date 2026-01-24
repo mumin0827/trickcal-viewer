@@ -1,0 +1,365 @@
+CannaSkin2.png
+size:1024,512
+filter:Linear,Linear
+pma:true
+scale:0.5
+Arkm_L_2_Ac
+bounds:552,69,17,29
+Arm_L_1
+bounds:486,445,48,29
+offsets:14,21,73,72
+rotate:180
+Arm_L_1_Sleeve
+bounds:251,2,33,29
+offsets:13,22,73,72
+Arm_L_2
+bounds:191,3,36,29
+offsets:15,18,65,65
+rotate:270
+Arm_L_Joint_1
+bounds:326,9,22,22
+offsets:21,21,65,65
+rotate:90
+Arm_L_Joint_2
+bounds:544,192,29,26
+offsets:18,19,65,65
+rotate:90
+Arm_L_Joint_3
+bounds:529,320,30,30
+offsets:17,17,65,65
+Arm_R_1
+bounds:497,293,46,27
+offsets:11,22,73,72
+rotate:180
+Arm_R_1_Sleeve
+bounds:541,33,29,30
+offsets:29,20,73,72
+rotate:180
+Arm_R_2
+bounds:110,8,36,29
+offsets:13,18,65,65
+rotate:180
+Arm_R_Joint_1
+bounds:162,244,22,22
+offsets:21,21,65,65
+Arm_R_Joint_2
+bounds:544,370,27,26
+offsets:19,19,65,65
+rotate:90
+Arm_R_Joint_3
+bounds:528,100,30,30
+offsets:17,17,65,65
+rotate:90
+Ball_L
+bounds:476,321,43,37
+Ball_R
+bounds:486,474,43,34
+offsets:0,0,43,35
+Body
+bounds:271,56,78,100
+offsets:9,11,102,135
+rotate:270
+Body_Shirts
+bounds:468,366,77,57
+offsets:0,1,77,58
+rotate:90
+Body_Shirts_Ac
+bounds:435,469,10,17
+CommonShadow
+bounds:526,397,51,19
+rotate:90
+Elf_Ear
+bounds:510,255,30,39
+offsets:1,0,31,39
+Emo_Blush
+bounds:394,135,65,60
+offsets:64,23,242,157
+rotate:90
+Emo_Sad
+bounds:395,209,72,53
+offsets:65,29,242,157
+rotate:90
+Eye_Brow_L_ Angry
+bounds:471,209,21,12
+offsets:97,60,242,157
+Eye_Brow_L_ Happy
+bounds:413,321,18,14
+offsets:99,64,242,157
+Eye_Brow_L_ Idle
+bounds:447,303,16,10
+offsets:106,74,242,157
+rotate:90
+Eye_Brow_L_ Mad
+bounds:33,3,15,11
+offsets:101,67,242,157
+rotate:90
+Eye_Brow_L_ Sad
+bounds:476,428,21,12
+offsets:100,73,242,157
+Eye_Brow_L_ Sorry
+bounds:353,498,19,10
+offsets:104,68,242,157
+Eye_Brow_L_ Surprise
+bounds:132,82,21,9
+offsets:106,85,242,157
+Eye_Brow_R_ Angry
+bounds:319,272,18,9
+offsets:72,61,242,157
+Eye_Brow_R_ Happy
+bounds:162,231,18,13
+offsets:74,63,242,157
+Eye_Brow_R_ Idle
+bounds:176,2,15,10
+offsets:70,74,242,157
+Eye_Brow_R_ Mad
+bounds:319,486,15,12
+offsets:74,66,242,157
+Eye_Brow_R_ Sad
+bounds:461,497,18,11
+offsets:70,73,242,157
+Eye_Brow_R_ Sorry
+bounds:147,3,16,9
+offsets:71,67,242,157
+Eye_Brow_R_ Surprise
+bounds:170,46,22,11
+offsets:63,82,242,157
+rotate:90
+Eye_L_ Angry
+bounds:562,329,44,16
+offsets:98,46,242,157
+rotate:90
+Eye_L_ Happy
+bounds:568,433,31,18
+offsets:102,48,242,157
+rotate:270
+Eye_L_ Idle
+bounds:370,9,30,33
+offsets:107,43,242,157
+Eye_L_ Mad
+bounds:409,485,40,23
+offsets:100,46,242,157
+Eye_L_ Sad
+bounds:99,70,33,21
+offsets:102,44,242,157
+Eye_L_ Sorry
+bounds:559,468,40,18
+offsets:101,51,242,157
+rotate:90
+Eye_L_ Surprise
+bounds:428,103,19,28
+offsets:108,43,242,157
+Eye_Lashe_L_1_ Idle
+bounds:539,249,45,25
+offsets:101,52,242,157
+rotate:270
+Eye_Lashe_L_1_ Sad
+bounds:551,145,48,18
+offsets:100,58,242,157
+rotate:90
+Eye_Lashe_L_1_Surprise
+bounds:565,260,33,18
+offsets:104,65,242,157
+rotate:90
+Eye_Lashe_R_1_ Idle
+bounds:545,416,34,25
+offsets:53,52,242,157
+rotate:90
+Eye_Lashe_R_1_ Sad
+bounds:561,396,40,16
+offsets:50,58,242,157
+rotate:90
+Eye_Lashe_R_1_ Surprise
+bounds:276,249,29,17
+offsets:57,63,242,157
+Eye_R_ Angry
+bounds:571,177,38,14
+offsets:51,46,242,157
+rotate:90
+Eye_R_ Happy
+bounds:571,232,28,15
+offsets:58,48,242,157
+rotate:270
+Eye_R_ Idle
+bounds:535,451,23,30
+offsets:63,44,242,157
+rotate:90
+Eye_R_ Mad
+bounds:550,293,35,25
+offsets:59,43,242,157
+rotate:270
+Eye_R_ Sad
+bounds:557,114,32,20
+offsets:58,44,242,157
+rotate:90
+Eye_R_ Sorry
+bounds:569,143,34,15
+offsets:56,50,242,157
+rotate:90
+Eye_R_ Surprise
+bounds:251,66,19,27
+offsets:67,43,242,157
+F_mouth_idle
+bounds:571,94,23,15
+rotate:90
+Hair_1
+bounds:302,32,35,66
+rotate:90
+Hair_2
+bounds:475,210,39,58
+Hair_3
+bounds:415,394,70,108
+offsets:0,3,70,112
+Hair_3_Ac
+bounds:545,7,25,25
+Hair_4
+bounds:475,36,59,55
+offsets:0,3,59,58
+rotate:270
+Hair_5
+bounds:48,31,78,137
+offsets:0,1,78,138
+rotate:270
+Hair_B_1
+bounds:162,95,171,135
+rotate:90
+Hair_B_2
+bounds:412,321,62,75
+rotate:180
+Hair_B_3
+bounds:449,208,47,112
+Hair_B_Ac_1
+bounds:147,14,32,34
+rotate:90
+Hair_B_Ac_2
+bounds:413,284,32,35
+Hand_L_1
+bounds:530,474,30,34
+offsets:18,14,66,66
+Hand_L_2
+bounds:473,3,32,37
+offsets:18,16,66,66
+rotate:90
+Hand_L_3
+bounds:513,150,33,39
+offsets:16,13,66,66
+rotate:90
+Hand_L_4
+bounds:521,59,30,39
+offsets:18,10,66,66
+rotate:180
+Hand_R_1
+bounds:514,221,32,34
+offsets:16,14,66,66
+Hand_R_2
+bounds:511,181,32,37
+offsets:15,16,66,66
+Hand_R_3
+bounds:514,350,30,39
+offsets:17,13,66,66
+Hand_R_4
+bounds:287,5,29,39
+offsets:19,10,66,66
+rotate:90
+Head_Color
+bounds:319,361,147,96
+offsets:38,17,242,157
+rotate:90
+Head_Line
+bounds:298,134,147,96
+offsets:38,17,242,157
+rotate:90
+Head_Shadow
+bounds:162,268,240,155
+offsets:1,1,242,157
+rotate:90
+Knee_L
+bounds:551,223,26,19
+rotate:90
+Knee_R
+bounds:551,223,26,19
+rotate:90
+Leg_L_1
+bounds:319,283,60,94
+offsets:30,12,118,119
+rotate:90
+Leg_L_2
+bounds:428,35,50,67
+offsets:36,9,119,101
+Leg_L_Joint
+bounds:455,149,60,58
+offsets:32,19,119,91
+rotate:90
+Leg_R_1
+bounds:371,43,56,91
+offsets:32,13,118,119
+Leg_R_2
+bounds:183,40,50,68
+offsets:36,8,119,101
+rotate:90
+Leg_R_Joint
+bounds:473,95,54,54
+offsets:34,20,119,91
+rotate:180
+Mouth_ Angry
+bounds:415,378,22,17
+offsets:89,30,242,157
+Mouth_ Happy
+bounds:572,33,22,19
+offsets:85,28,242,157
+rotate:90
+Mouth_ Idle
+bounds:492,359,20,8
+offsets:89,32,242,157
+Mouth_ Mad
+bounds:485,268,22,19
+offsets:85,29,242,157
+Mouth_ Sad
+bounds:449,113,29,16
+offsets:82,32,242,157
+rotate:90
+Mouth_ Sorry
+bounds:569,309,21,21
+offsets:87,24,242,157
+rotate:270
+Mouth_Surprise
+bounds:571,374,20,26
+offsets:88,25,242,157
+Neck
+bounds:83,7,24,24
+offsets:42,101,102,135
+Panty
+bounds:415,412,74,31
+rotate:90
+Panty_Ac
+bounds:572,8,13,24
+Sweat_Sorry
+bounds:162,108,12,24
+offsets:128,68,242,157
+Weapon
+bounds:2,93,158,415
+Weapon_Ac
+bounds:2,28,43,63
+Weapon_Handle
+bounds:319,344,52,17
+eye_close_L
+bounds:373,348,36,13
+eye_close_R
+bounds:47,74,50,17
+eye_damage_L
+bounds:511,7,32,27
+eye_damage_R
+bounds:251,33,35,32
+eye_faint_L
+bounds:47,4,35,26
+eye_faint_R
+bounds:221,5,34,28
+rotate:90
+eye_tear
+bounds:544,355,15,14
+hand7_L
+bounds:2,3,29,23
+mouse_angry
+bounds:571,67,25,13
+rotate:90
+mouse_faint
+bounds:319,500,30,8
