@@ -74,20 +74,19 @@ export function useRecorder(
             }
         }
 
-        const totalFrames = Math.ceil(currentDuration * fps);
-        let frame = 0;
-        const frameBlobs: Blob[] = [];
-
         const targetDim = 1024;
         const zoom = 1.3;
-        const baseScale = targetDim / Math.max(canvas.width, canvas.height);
-        const scale = baseScale * zoom;
-        
-        const drawWidth = canvas.width * scale;
-        const drawHeight = canvas.height * scale;
-        
-        const offsetX = (targetDim - drawWidth) / 2;
-        const offsetY = (targetDim - drawHeight) / 2;
+
+        const originalWidth = canvas.width;
+        const originalHeight = canvas.height;
+        const captureTarget = 2048;
+
+        const captureScaleFactor = Math.max(1, captureTarget / Math.max(originalWidth, originalHeight));
+
+        if (captureScaleFactor > 1) {
+            canvas.width = Math.round(originalWidth * captureScaleFactor);
+            canvas.height = Math.round(originalHeight * captureScaleFactor);
+        }
 
         const tempCanvas = document.createElement('canvas');
         tempCanvas.width = targetDim;
@@ -95,57 +94,81 @@ export function useRecorder(
         const ctx = tempCanvas.getContext('2d', { willReadFrequently: true });
 
         if (!ctx) {
+            canvas.width = originalWidth;
+            canvas.height = originalHeight;
             setIsRecording(false);
             player.paused = wasPaused;
             return;
         }
 
+        const baseScale = targetDim / Math.max(canvas.width, canvas.height);
+        const scale = baseScale * zoom;
+
+        const drawWidth = canvas.width * scale;
+        const drawHeight = canvas.height * scale;
+
+        const offsetX = (targetDim - drawWidth) / 2;
+        const offsetY = (targetDim - drawHeight) / 2;
+
+        const totalFrames = Math.ceil(currentDuration * fps);
+        let frame = 0;
+        const frameBlobs: Blob[] = [];
+
         const zip = mode === 'zip' ? new JSZip() : null;
         const fileNameBase = `${selectedChar?.name_kr || 'Character'}_${currentAnim}`;
 
         const processResults = async () => {
+            canvas.width = originalWidth;
+            canvas.height = originalHeight;
+            player.paused = wasPaused;
+
             if (mode === 'gif') {
                 const ffmpeg = ffmpegRef.current;
-                if (!ffmpeg) return;
-
-                console.log("Start FFmpeg processing...");
-                
-                for (let i = 0; i < frameBlobs.length; i++) {
-                    const fname = `frame_${String(i).padStart(3, '0')}.png`;
-                    const data = await fetchFile(frameBlobs[i]);
-                    await ffmpeg.writeFile(fname, data);
+                if (!ffmpeg) {
+                    setIsRecording(false);
+                    return;
                 }
 
-                await ffmpeg.exec([
-                    '-f', 'image2',
-                    '-framerate', String(fps),
-                    '-i', 'frame_%03d.png',
-                    '-vf', 'palettegen',
-                    'palette.png'
-                ]);
+                try {
+                    for (let i = 0; i < frameBlobs.length; i++) {
+                        const fname = `frame_${String(i).padStart(3, '0')}.png`;
+                        const data = await fetchFile(frameBlobs[i]);
+                        await ffmpeg.writeFile(fname, data);
+                    }
 
-                await ffmpeg.exec([
-                    '-f', 'image2',
-                    '-framerate', String(fps),
-                    '-i', 'frame_%03d.png',
-                    '-i', 'palette.png',
-                    '-lavfi', 'paletteuse',
-                    '-gifflags', '-offsetting',
-                    '-loop', '0',
-                    'output.gif'
-                ]);
+                    await ffmpeg.exec([
+                        '-f', 'image2',
+                        '-framerate', String(fps),
+                        '-i', 'frame_%03d.png',
+                        '-vf', 'palettegen',
+                        'palette.png'
+                    ]);
 
-                const data = await ffmpeg.readFile('output.gif');
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const blob = new Blob([data as any], { type: 'image/gif' });
-                saveAs(blob, `${fileNameBase}.gif`);
+                    await ffmpeg.exec([
+                        '-f', 'image2',
+                        '-framerate', String(fps),
+                        '-i', 'frame_%03d.png',
+                        '-i', 'palette.png',
+                        '-lavfi', 'paletteuse',
+                        '-gifflags', '-offsetting',
+                        '-loop', '0',
+                        'output.gif'
+                    ]);
 
-                for (let i = 0; i < frameBlobs.length; i++) {
-                    const fname = `frame_${String(i).padStart(3, '0')}.png`;
-                    await ffmpeg.deleteFile(fname);
+                    const data = await ffmpeg.readFile('output.gif');
+                    const blob = new Blob([data as any], { type: 'image/gif' });
+                    saveAs(blob, `${fileNameBase}.gif`);
+
+                    for (let i = 0; i < frameBlobs.length; i++) {
+                        const fname = `frame_${String(i).padStart(3, '0')}.png`;
+                        await ffmpeg.deleteFile(fname);
+                    }
+                    await ffmpeg.deleteFile('palette.png');
+                    await ffmpeg.deleteFile('output.gif');
+                } catch (e) {
+                    console.error("FFmpeg error", e);
+                    alert("Failed to generate GIF.");
                 }
-                await ffmpeg.deleteFile('palette.png');
-                await ffmpeg.deleteFile('output.gif');
             } else {
                  zip?.generateAsync({type: 'blob'}).then(content => {
                      saveAs(content, `${fileNameBase}.zip`);
@@ -153,7 +176,6 @@ export function useRecorder(
             }
 
             setIsRecording(false);
-            player.paused = wasPaused;
         };
 
         const nextFrame = () => {
@@ -172,7 +194,7 @@ export function useRecorder(
             } catch(e) {
                 console.error(e);
             }
-            
+
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     ctx.clearRect(0, 0, targetDim, targetDim);
