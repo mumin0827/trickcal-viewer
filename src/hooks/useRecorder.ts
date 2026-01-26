@@ -74,7 +74,7 @@ export function useRecorder(
             }
         }
 
-        const targetDim = 1024;
+        const targetDim = 2048;
         const zoom = 1.3;
 
         const originalWidth = canvas.width;
