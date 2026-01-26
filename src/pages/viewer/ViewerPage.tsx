@@ -90,9 +90,9 @@ const ViewerPage: React.FC = () => {
         setIsExportModalOpen(true);
     };
 
-    const confirmExport = (format: 'gif' | 'zip' | 'png', fps: number) => {
+    const confirmExport = (format: 'gif' | 'zip' | 'png', fps: number, resolution: number) => {
         setIsExportModalOpen(false);
-        handleExtract(format, fps);
+        handleExtract(format, fps, resolution);
     };
 
     useEffect(() => {

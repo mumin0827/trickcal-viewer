@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 interface ExportModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onConfirm: (format: 'gif' | 'zip' | 'png', fps: number) => void;
+    onConfirm: (format: 'gif' | 'zip' | 'png', fps: number, resolution: number) => void;
 }
 
 const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm }) => {
     const [selectedFormat, setSelectedFormat] = useState<'gif' | 'zip' | 'png'>('gif');
+    const [resolution, setResolution] = useState(1024);
 
     const gifSteps = [
         { actual: 1,  display: 1,  label: '1.00s' },
@@ -30,8 +31,14 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
 
     const handleConfirm = () => {
         const fps = selectedFormat === 'gif' ? currentStep.actual : zipFps;
-        onConfirm(selectedFormat, fps);
+        onConfirm(selectedFormat, fps, resolution);
     };
+
+    const resolutionPresets = [
+        { label: '낮음', value: 512, desc: '512px' },
+        { label: '중간', value: 1024, desc: '1024px' },
+        { label: '높음', value: 1536, desc: '1536px' }
+    ];
 
     return (
         <div className="modal-overlay">
@@ -40,7 +47,7 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
                     <h3 style={{ margin: 0 }}>내보내기 설정</h3>
                 </div>
 
-                {/* Format Selection Tabs */}
+                {/* 포맷 선택 탭 */}
                 <div style={{ display: 'flex', gap: '10px', marginTop: '20px', borderBottom: '1px solid var(--header-border)', paddingBottom: '20px' }}>
                     {(['gif', 'zip', 'png'] as const).map((fmt) => (
                         <button
@@ -80,6 +87,34 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
                             </>
                         )}
                     </p>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <label className="modal-label">해상도:</label>
+                        </div>
+                        <div style={{ display: 'flex', gap: '15px', background: 'rgba(0,0,0,0.03)', padding: '10px 15px', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+                            {resolutionPresets.map((preset) => (
+                                <label key={preset.value} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', flex: 1 }}>
+                                    <input
+                                        type="radio"
+                                        name="resolution"
+                                        value={preset.value}
+                                        checked={resolution === preset.value}
+                                        onChange={() => setResolution(preset.value)}
+                                        style={{ accentColor: 'var(--tc-green-dark)', width: '18px', height: '18px', cursor: 'pointer' }}
+                                    />
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <span style={{ fontSize: '0.95rem', fontWeight: resolution === preset.value ? 'bold' : 'normal', color: 'var(--text-main)' }}>
+                                            {preset.label}
+                                        </span>
+                                        <span style={{ fontSize: '0.75rem', color: 'var(--text-sub)' }}>
+                                            {preset.desc}
+                                        </span>
+                                    </div>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
 
                     {selectedFormat !== 'png' && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>

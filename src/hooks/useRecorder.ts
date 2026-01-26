@@ -43,7 +43,7 @@ export function useRecorder(
         }
     };
 
-    const handleExtract = async (mode: 'gif' | 'zip' | 'png', fps: number = 30) => {
+    const handleExtract = async (mode: 'gif' | 'zip' | 'png', fps: number = 30, resolution: number = 1024) => {
         if (!selectedChar || !selectedSkin || isRecording) return;
         
         if (mode === 'gif') {
@@ -53,8 +53,8 @@ export function useRecorder(
 
         setIsRecording(true);
 
-        // 1. 타겟 해상도 결정: 용량 최적화를 위해 GIF와 ZIP 모두 800px 사용
-        const targetDim = 800;
+        // 1. 타겟 해상도 결정: 사용자 입력 값 (기본 1024px)
+        const targetDim = resolution;
 
         // 2. 섀도우 플레이어(백그라운드 캡처용)를 위한 숨겨진 컨테이너 생성
         const shadowContainer = document.createElement('div');
@@ -147,6 +147,17 @@ export function useRecorder(
                  return;
              }
 
+             // 기기 간 출력 일관성을 보장하기 위해 고정 크기 캔버스 생성
+             const processingCanvas = document.createElement('canvas');
+             processingCanvas.width = targetDim;
+             processingCanvas.height = targetDim;
+             const processingCtx = processingCanvas.getContext('2d', { willReadFrequently: true });
+
+             if (!processingCtx) {
+                 cleanup();
+                 return;
+             }
+
              const totalFrames = mode === 'png' ? 1 : Math.ceil(animDuration * fps);
              let frame = 0;
              const frameBlobs: Blob[] = [];
@@ -234,7 +245,11 @@ export function useRecorder(
                  
                  requestAnimationFrame(() => {
                      requestAnimationFrame(() => {
-                         canvas.toBlob(blob => {
+                         // 기기 픽셀 비율로 인해 크기가 달라진 플레이어 캔버스를 고정 크기 캔버스에 맞춰 그리기
+                         processingCtx.clearRect(0, 0, targetDim, targetDim);
+                         processingCtx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, targetDim, targetDim);
+                         
+                         processingCanvas.toBlob(blob => {
                              if (blob) {
                                  frameBlobs.push(blob);
                                  if (mode === 'zip') {
