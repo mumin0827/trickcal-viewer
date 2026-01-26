@@ -28,7 +28,6 @@ const ViewerPage: React.FC = () => {
     const [viewMode, setViewMode] = React.useState<'standing' | 'ingame'>('standing');
     const [isCharModalOpen, setIsCharModalOpen] = React.useState(false);
     const [isExportModalOpen, setIsExportModalOpen] = React.useState(false);
-    const [exportFormat, setExportFormat] = React.useState<'gif' | 'zip'>('gif');
     
     const [showLoading, setShowLoading] = React.useState(true);
     const [isExiting, setIsExiting] = React.useState(false);
@@ -38,7 +37,6 @@ const ViewerPage: React.FC = () => {
 
     useEffect(() => {
         if (!isLoading) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsExiting(true);
             const timer = setTimeout(() => {
                 setShowLoading(false);
@@ -49,7 +47,6 @@ const ViewerPage: React.FC = () => {
 
     const playerRef = useRef<HTMLDivElement>(null);
     const {
-        playerInstance,
         isPlaying,
         animations,
         currentAnim,
@@ -68,16 +65,16 @@ const ViewerPage: React.FC = () => {
     } = useSpinePlayer(selectedChar, selectedSkin, playerRef, viewMode);
 
     const { isRecording, handleExtract } = useRecorder(
-        playerInstance,
-        playerRef,
         selectedChar,
+        selectedSkin,
+        viewMode,
         currentAnim,
-        duration
+        duration,
+        currentSpineSkin
     );
 
     useEffect(() => {
         if (isRecording) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setShowRecLoading(true);
             setIsRecExiting(false);
         } else if (showRecLoading) {
@@ -89,14 +86,13 @@ const ViewerPage: React.FC = () => {
         }
     }, [isRecording, showRecLoading]);
 
-    const openExportModal = (format: 'gif' | 'zip') => {
-        setExportFormat(format);
+    const openExportModal = () => {
         setIsExportModalOpen(true);
     };
 
-    const confirmExport = (fps: number) => {
+    const confirmExport = (format: 'gif' | 'zip' | 'png', fps: number) => {
         setIsExportModalOpen(false);
-        handleExtract(exportFormat, fps);
+        handleExtract(format, fps);
     };
 
     useEffect(() => {
@@ -160,24 +156,14 @@ const ViewerPage: React.FC = () => {
                     <div className="top-controls">
                         <div className="record-controls">
                             {selectedChar && selectedSkin && (
-                                <>
-                                    <button
-                                        className="record-btn"
-                                        onClick={() => openExportModal('gif')}
-                                        disabled={isRecording}
-                                        title="GIf로 추출해요"
-                                    >
-                                        {isRecording ? '⏳' : 'GIF 내보내기'}
-                                    </button>
-                                    <button
-                                        className="record-btn"
-                                        onClick={() => openExportModal('zip')}
-                                        disabled={isRecording}
-                                        title="Export Frames (ZIP)"
-                                    >
-                                        {isRecording ? '⏳' : '프레임(ZIP) 내보내기'}
-                                    </button>
-                                </>
+                                <button
+                                    className="record-btn"
+                                    onClick={openExportModal}
+                                    disabled={isRecording}
+                                    title="내보내기 설정"
+                                >
+                                    {isRecording ? '⏳' : '내보내기'}
+                                </button>
                             )}
                         </div>
                         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
@@ -259,7 +245,6 @@ const ViewerPage: React.FC = () => {
                 isOpen={isExportModalOpen}
                 onClose={() => setIsExportModalOpen(false)}
                 onConfirm={confirmExport}
-                format={exportFormat}
             />
 
             {showLoading && <Loading isExiting={isExiting} />}

@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 interface ExportModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onConfirm: (fps: number) => void;
-    format: 'gif' | 'zip';
+    onConfirm: (format: 'gif' | 'zip' | 'png', fps: number) => void;
 }
 
-const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm, format }) => {
-    // GIF 최적화 FPS 단계 (Low -> High 순서로 뒤집음)
+const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm }) => {
+    const [selectedFormat, setSelectedFormat] = useState<'gif' | 'zip' | 'png'>('gif');
+
     const gifSteps = [
         { actual: 1,  display: 1,  label: '1.00s' },
         { actual: 2,  display: 2,  label: '0.50s' },
@@ -21,69 +21,104 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm, f
         { actual: 50, display: 50, label: '0.02s' }
     ];
 
-    const steps = gifSteps; // GIF용 단계만 유지
     const [stepIndex, setStepIndex] = useState(7); // GIF 기본값 (30 FPS)
     const [zipFps, setZipFps] = useState(30);      // ZIP 기본값
 
     if (!isOpen) return null;
 
-    const isGif = format === 'gif';
-    const currentStep = steps[stepIndex] || steps[0];
+    const currentStep = gifSteps[stepIndex] || gifSteps[0];
+
+    const handleConfirm = () => {
+        const fps = selectedFormat === 'gif' ? currentStep.actual : zipFps;
+        onConfirm(selectedFormat, fps);
+    };
 
     return (
         <div className="modal-overlay">
             <div className="modal-content" style={{ height: 'auto', maxWidth: '400px', padding: '30px' }}>
                 <div className="modal-header">
-                    <h3 style={{ margin: 0 }}>{format.toUpperCase()} 내보내기 설정</h3>
+                    <h3 style={{ margin: 0 }}>내보내기 설정</h3>
+                </div>
+
+                {/* Format Selection Tabs */}
+                <div style={{ display: 'flex', gap: '10px', marginTop: '20px', borderBottom: '1px solid var(--header-border)', paddingBottom: '20px' }}>
+                    {(['gif', 'zip', 'png'] as const).map((fmt) => (
+                        <button
+                            key={fmt}
+                            onClick={() => setSelectedFormat(fmt)}
+                            className={selectedFormat === fmt ? "record-btn active" : "record-btn"}
+                            style={{
+                                flex: 1,
+                                justifyContent: 'center',
+                                background: selectedFormat === fmt ? 'var(--tc-green)' : 'var(--btn-bg)',
+                                borderColor: selectedFormat === fmt ? 'var(--tc-green-dark)' : 'var(--btn-border)',
+                                color: selectedFormat === fmt ? '#fff' : 'var(--btn-text)',
+                                textTransform: 'uppercase',
+                                fontSize: '1rem',
+                                height: '48px',
+                                boxShadow: selectedFormat === fmt ? 'none' : 'var(--tc-btn-shadow)',
+                                transform: selectedFormat === fmt ? 'translateY(2px)' : 'none'
+                            }}
+                        >
+                            {fmt}
+                        </button>
+                    ))}
                 </div>
 
                 <div style={{ padding: '24px 0', display: 'flex', flexDirection: 'column', gap: '20px', zIndex: 1 }}>
-                    <p className="modal-body-text">
-                        {isGif ? '사도의 움직이는 이미지를 생성합니다.' : '사도의 개별 프레임을 압축 파일(.zip)로 생성합니다.'}
-                        <br />
-                        {isGif && (
-                            <span style={{ fontSize: '0.85rem', color: '#666' }}>
-                                ※ GIF 포맷 최적화 값으로 고정됩니다. (최대 50 FPS)
-                            </span>
+                    <p className="modal-body-text" style={{ minHeight: '40px' }}>
+                        {selectedFormat === 'gif' && '사도의 움직이는 이미지를 생성합니다.'}
+                        {selectedFormat === 'zip' && '사도의 개별 프레임을 압축 파일(.zip)로 생성합니다.'}
+                        {selectedFormat === 'png' && '현재 모션의 첫 프레임을 이미지로 저장합니다.'}
+                        
+                        {selectedFormat === 'gif' && (
+                            <>
+                                <br />
+                                <span style={{ fontSize: '0.85rem', color: '#666' }}>
+                                    ※ GIF 포맷 최적화 값으로 고정됩니다. (최대 50 FPS)
+                                </span>
+                            </>
                         )}
                     </p>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                            <label className="modal-label">프레임 (FPS):</label>
-                            <div style={{ textAlign: 'right' }}>
-                                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--tc-green-dark)', lineHeight: 1 }}>
-                                    {isGif ? currentStep.display : zipFps}
+                    {selectedFormat !== 'png' && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                                <label className="modal-label">프레임 (FPS):</label>
+                                <div style={{ textAlign: 'right' }}>
+                                    <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--tc-green-dark)', lineHeight: 1 }}>
+                                        {selectedFormat === 'gif' ? currentStep.display : zipFps}
+                                    </div>
                                 </div>
                             </div>
+                            
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                {selectedFormat === 'gif' ? (
+                                    <input
+                                        type="range"
+                                        value={stepIndex}
+                                        onChange={(e) => setStepIndex(parseInt(e.target.value))}
+                                        className="tc-slider"
+                                        style={{ "--p": `${(stepIndex / (gifSteps.length - 1)) * 100}%` } as React.CSSProperties}
+                                        min="0"
+                                        max={gifSteps.length - 1}
+                                        step="1"
+                                    />
+                                ) : (
+                                    <input
+                                        type="range"
+                                        value={zipFps}
+                                        onChange={(e) => setZipFps(parseInt(e.target.value))}
+                                        className="tc-slider"
+                                        style={{ "--p": `${((zipFps - 1) / 59) * 100}%` } as React.CSSProperties}
+                                        min="1"
+                                        max="60"
+                                        step="1"
+                                    />
+                                )}
+                            </div>
                         </div>
-                        
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                            {isGif ? (
-                                <input
-                                    type="range"
-                                    value={stepIndex}
-                                    onChange={(e) => setStepIndex(parseInt(e.target.value))}
-                                    className="tc-slider"
-                                    style={{ "--p": `${(stepIndex / (steps.length - 1)) * 100}%` } as React.CSSProperties}
-                                    min="0"
-                                    max={steps.length - 1}
-                                    step="1"
-                                />
-                            ) : (
-                                <input
-                                    type="range"
-                                    value={zipFps}
-                                    onChange={(e) => setZipFps(parseInt(e.target.value))}
-                                    className="tc-slider"
-                                    style={{ "--p": `${((zipFps - 1) / 59) * 100}%` } as React.CSSProperties}
-                                    min="1"
-                                    max="60"
-                                    step="1"
-                                />
-                            )}
-                        </div>
-                    </div>
+                    )}
                 </div>
 
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '10px', zIndex: 1 }}>
@@ -95,9 +130,9 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm, f
                     </button>
                     <button 
                         className="close-modal-btn" 
-                        onClick={() => onConfirm(isGif ? currentStep.actual : zipFps)}
+                        onClick={handleConfirm}
                     >
-                        추출 시작
+                        내보내기
                     </button>
                 </div>
             </div>

@@ -3,15 +3,16 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { fetchFile, toBlobURL } from '@ffmpeg/util';
-import type { Character } from '../types';
+import type { Character, Skin } from '../types';
+import { RESOURCE_PATHS } from '../routers/paths';
 
 export function useRecorder(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    playerInstance: React.MutableRefObject<any>,
-    canvasRef: React.RefObject<HTMLDivElement | null>,
     selectedChar: Character | null,
+    selectedSkin: Skin | null,
+    viewMode: 'standing' | 'ingame',
     currentAnim: string,
-    duration: number
+    duration: number,
+    currentSpineSkin: string
 ) {
     const [isRecording, setIsRecording] = useState(false);
     const ffmpegRef = useRef<FFmpeg | null>(null);
@@ -42,179 +43,216 @@ export function useRecorder(
         }
     };
 
-    const handleExtract = async (mode: 'gif' | 'zip', fps: number = 30) => {
-        if (!playerInstance.current || isRecording) return;
-        const player = playerInstance.current;
-        const canvas = canvasRef.current?.querySelector('canvas');
-        if (!canvas) return;
-
-        setIsRecording(true);
-        const wasPaused = player.paused;
-        player.paused = true;
-
-        let currentDuration = duration;
-        const track = player.animationState.getCurrent(0);
-        if (track && track.animation) {
-             currentDuration = track.animation.duration;
-        }
+    const handleExtract = async (mode: 'gif' | 'zip' | 'png', fps: number = 30) => {
+        if (!selectedChar || !selectedSkin || isRecording) return;
         
-        if (currentDuration <= 0) {
-            setIsRecording(false);
-            player.paused = wasPaused;
-            alert("Duration is 0, cannot extract.");
-            return;
-        }
-
         if (mode === 'gif') {
             const ffmpeg = await loadFfmpeg();
-            if (!ffmpeg) {
-                setIsRecording(false);
-                player.paused = wasPaused;
-                return;
-            }
+            if (!ffmpeg) return;
         }
 
-        const targetDim = 2048;
-        const zoom = 1.3;
+        setIsRecording(true);
 
-        const originalWidth = canvas.width;
-        const originalHeight = canvas.height;
-        const captureTarget = 2048;
+        // 1. 타겟 해상도 결정: 용량 최적화를 위해 GIF와 ZIP 모두 800px 사용
+        const targetDim = 800;
 
-        const captureScaleFactor = Math.max(1, captureTarget / Math.max(originalWidth, originalHeight));
+        // 2. 섀도우 플레이어(백그라운드 캡처용)를 위한 숨겨진 컨테이너 생성
+        const shadowContainer = document.createElement('div');
+        shadowContainer.style.position = 'fixed';
+        shadowContainer.style.top = '0';
+        // 렌더링 보장을 위해 opacity 0 대신 화면 밖으로 이동 처리
+        shadowContainer.style.left = '-9999px';
+        shadowContainer.style.width = `${targetDim}px`;
+        shadowContainer.style.height = `${targetDim}px`;
+        shadowContainer.style.zIndex = '-9999';
+        // 브라우저 레이아웃 엔진이 렌더링을 건너뛰지 않도록 visibility 유지
+        shadowContainer.style.visibility = 'visible'; 
+        document.body.appendChild(shadowContainer);
 
-        if (captureScaleFactor > 1) {
-            canvas.width = Math.round(originalWidth * captureScaleFactor);
-            canvas.height = Math.round(originalHeight * captureScaleFactor);
-        }
+        const basePath = viewMode === 'ingame'
+            ? RESOURCE_PATHS.IMAGE.INGAME_SPINE_BASE
+            : RESOURCE_PATHS.IMAGE.SPINE_BASE;
 
-        const tempCanvas = document.createElement('canvas');
-        tempCanvas.width = targetDim;
-        tempCanvas.height = targetDim;
-        const ctx = tempCanvas.getContext('2d', { willReadFrequently: true });
+        const skelUrl = `${basePath}/skel/${selectedSkin.file}.skel`;
+        const atlasUrl = `${basePath}/atlas/${selectedSkin.file}.atlas`;
 
-        if (!ctx) {
-            canvas.width = originalWidth;
-            canvas.height = originalHeight;
-            setIsRecording(false);
-            player.paused = wasPaused;
-            return;
-        }
+        let shadowPlayer: any = null;
 
-        const baseScale = targetDim / Math.max(canvas.width, canvas.height);
-        const scale = baseScale * zoom;
-
-        const drawWidth = canvas.width * scale;
-        const drawHeight = canvas.height * scale;
-
-        const offsetX = (targetDim - drawWidth) / 2;
-        const offsetY = (targetDim - drawHeight) / 2;
-
-        const totalFrames = Math.ceil(currentDuration * fps);
-        let frame = 0;
-        const frameBlobs: Blob[] = [];
-
-        const zip = mode === 'zip' ? new JSZip() : null;
-        const fileNameBase = `${selectedChar?.name_kr || 'Character'}_${currentAnim}`;
-
-        const processResults = async () => {
-            canvas.width = originalWidth;
-            canvas.height = originalHeight;
-            player.paused = wasPaused;
-
-            if (mode === 'gif') {
-                const ffmpeg = ffmpegRef.current;
-                if (!ffmpeg) {
-                    setIsRecording(false);
-                    return;
-                }
-
-                try {
-                    for (let i = 0; i < frameBlobs.length; i++) {
-                        const fname = `frame_${String(i).padStart(3, '0')}.png`;
-                        const data = await fetchFile(frameBlobs[i]);
-                        await ffmpeg.writeFile(fname, data);
-                    }
-
-                    await ffmpeg.exec([
-                        '-f', 'image2',
-                        '-framerate', String(fps),
-                        '-i', 'frame_%03d.png',
-                        '-vf', 'palettegen',
-                        'palette.png'
-                    ]);
-
-                    await ffmpeg.exec([
-                        '-f', 'image2',
-                        '-framerate', String(fps),
-                        '-i', 'frame_%03d.png',
-                        '-i', 'palette.png',
-                        '-lavfi', 'paletteuse',
-                        '-gifflags', '-offsetting',
-                        '-loop', '0',
-                        'output.gif'
-                    ]);
-
-                    const data = await ffmpeg.readFile('output.gif');
-                    const blob = new Blob([data as any], { type: 'image/gif' });
-                    saveAs(blob, `${fileNameBase}.gif`);
-
-                    for (let i = 0; i < frameBlobs.length; i++) {
-                        const fname = `frame_${String(i).padStart(3, '0')}.png`;
-                        await ffmpeg.deleteFile(fname);
-                    }
-                    await ffmpeg.deleteFile('palette.png');
-                    await ffmpeg.deleteFile('output.gif');
-                } catch (e) {
-                    console.error("FFmpeg error", e);
-                    alert("Failed to generate GIF.");
-                }
-            } else {
-                 zip?.generateAsync({type: 'blob'}).then(content => {
-                     saveAs(content, `${fileNameBase}.zip`);
-                 });
-            }
-
-            setIsRecording(false);
-        };
-
-        const nextFrame = () => {
-            if (frame >= totalFrames) {
-                processResults();
-                return;
-            }
-
-            if (track) {
-                track.trackTime = frame / fps; 
-            }
-            
+        if (window.spine && window.spine.SpinePlayer) {
             try {
-                player.animationState.apply(player.skeleton);
-                player.skeleton.updateWorldTransform();
-            } catch(e) {
-                console.error(e);
-            }
-
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    ctx.clearRect(0, 0, targetDim, targetDim);
-                    ctx.drawImage(canvas, offsetX, offsetY, drawWidth, drawHeight);
-
-                    tempCanvas.toBlob(blob => {
-                        if (blob) {
-                            frameBlobs.push(blob);
-                            if (mode === 'zip') {
-                                zip?.file(`frame_${String(frame).padStart(3, '0')}.png`, blob);
-                            }
-                        }
-                        frame++;
-                        nextFrame();
-                    });
+                new window.spine.SpinePlayer(shadowContainer, {
+                    skelUrl: skelUrl,
+                    atlasUrl: atlasUrl,
+                    backgroundColor: "#00000000",
+                    alpha: true,
+                    interactive: false,
+                    skin: currentSpineSkin || "Normal",
+                    animation: currentAnim,
+                    showControls: false,
+                    showLoading: false,
+                    preserveDrawingBuffer: true,
+                    
+                    success: (player: any) => {
+                        shadowPlayer = player;
+                        // 레이아웃 안정화 및 초기 프레임 렌더링을 위해 잠시 대기
+                        setTimeout(() => {
+                            startRecording(player);
+                        }, 500);
+                    },
+                    error: (_p: any, reason: string) => {
+                        console.error("Shadow Player Error:", reason);
+                        cleanup();
+                    }
                 });
-            });
-        };
-        
-        nextFrame();
+            } catch (e) {
+                console.error("Error creating Shadow SpinePlayer", e);
+                cleanup();
+            }
+        } else {
+            console.error("Spine runtime not found");
+            cleanup();
+        }
+
+        function cleanup() {
+            if (shadowPlayer) {
+                try { shadowPlayer.dispose(); } catch {}
+            }
+            if (document.body.contains(shadowContainer)) {
+                document.body.removeChild(shadowContainer);
+            }
+            setIsRecording(false);
+        }
+
+        async function startRecording(player: any) {
+             let animDuration = duration;
+             const track = player.animationState.getCurrent(0);
+             if (track && track.animation) {
+                 animDuration = track.animation.duration;
+             }
+             if (animDuration <= 0) {
+                 alert("Duration is 0, cannot extract.");
+                 cleanup();
+                 return;
+             }
+             
+             if (currentSpineSkin && player.skeleton) {
+                 player.skeleton.setSkinByName(currentSpineSkin);
+                 player.skeleton.setSlotsToSetupPose();
+                 player.animationState.apply(player.skeleton);
+             }
+
+             const canvas = shadowContainer.querySelector('canvas');
+             if (!canvas) {
+                 cleanup();
+                 return;
+             }
+
+             const totalFrames = mode === 'png' ? 1 : Math.ceil(animDuration * fps);
+             let frame = 0;
+             const frameBlobs: Blob[] = [];
+             const zip = mode === 'zip' ? new JSZip() : null;
+             const fileNameBase = `${selectedChar?.name_kr || 'Character'}_${currentAnim}`;
+
+             const processResults = async () => {
+                if (mode === 'gif') {
+                    const ffmpeg = ffmpegRef.current;
+                    if (!ffmpeg) {
+                        cleanup();
+                        return;
+                    }
+
+                    try {
+                        for (let i = 0; i < frameBlobs.length; i++) {
+                            const fname = `frame_${String(i).padStart(3, '0')}.png`;
+                            const data = await fetchFile(frameBlobs[i]);
+                            await ffmpeg.writeFile(fname, data);
+                        }
+
+                        await ffmpeg.exec([
+                            '-f', 'image2',
+                            '-framerate', String(fps),
+                            '-i', 'frame_%03d.png',
+                            '-vf', 'palettegen',
+                            'palette.png'
+                        ]);
+
+                        await ffmpeg.exec([
+                            '-f', 'image2',
+                            '-framerate', String(fps),
+                            '-i', 'frame_%03d.png',
+                            '-i', 'palette.png',
+                            '-lavfi', 'paletteuse=dither=sierra2_4a:diff_mode=rectangle:alpha_threshold=64',
+                            '-gifflags', '-offsetting',
+                            '-loop', '0',
+                            'output.gif'
+                        ]);
+
+                        const data = await ffmpeg.readFile('output.gif');
+                        if (!data || data.length === 0) {
+                            throw new Error("Generated GIF is empty");
+                        }
+                        const blob = new Blob([data as any], { type: 'image/gif' });
+                        saveAs(blob, `${fileNameBase}.gif`);
+
+                        for (let i = 0; i < frameBlobs.length; i++) {
+                            const fname = `frame_${String(i).padStart(3, '0')}.png`;
+                            await ffmpeg.deleteFile(fname);
+                        }
+                        await ffmpeg.deleteFile('palette.png');
+                        await ffmpeg.deleteFile('output.gif');
+                    } catch (e) {
+                        console.error("FFmpeg error", e);
+                        alert("Failed to generate GIF.");
+                    }
+                } else if (mode === 'zip') {
+                     zip?.generateAsync({type: 'blob'}).then(content => {
+                         saveAs(content, `${fileNameBase}.zip`);
+                     });
+                } else if (mode === 'png') {
+                    if (frameBlobs.length > 0) {
+                        saveAs(frameBlobs[0], `${fileNameBase}.png`);
+                    }
+                }
+                cleanup();
+            };
+            
+            player.paused = false;
+            player.timeScale = 0;
+
+            const captureLoop = () => {
+                 if (frame >= totalFrames) {
+                     processResults();
+                     return;
+                 }
+
+                 const currentTrack = player.animationState.getCurrent(0);
+                 if (currentTrack) {
+                     currentTrack.trackTime = frame / fps;
+                 }
+                 
+                 player.skeleton.updateWorldTransform();
+                 
+                 requestAnimationFrame(() => {
+                     requestAnimationFrame(() => {
+                         canvas.toBlob(blob => {
+                             if (blob) {
+                                 frameBlobs.push(blob);
+                                 if (mode === 'zip') {
+                                     zip?.file(`frame_${String(frame).padStart(3, '0')}.png`, blob, {
+                                         compression: "DEFLATE",
+                                         compressionOptions: { level: 6 }
+                                     });
+                                 }
+                             }
+                             frame++;
+                             captureLoop();
+                         });
+                     });
+                 });
+            };
+
+            captureLoop();
+        }
     };
 
     return {

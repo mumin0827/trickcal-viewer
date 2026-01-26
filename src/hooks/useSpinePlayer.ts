@@ -8,17 +8,16 @@ export function useSpinePlayer(
     playerRef: React.RefObject<HTMLDivElement | null>,
     viewMode: 'standing' | 'ingame' = 'standing'
 ) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const playerInstance = useRef<any>(null);
 
-    // Player State
+    // 플레이어 상태
     const [isPlaying, setIsPlaying] = useState(true);
     const [animations, setAnimations] = useState<string[]>([]);
     const [currentAnim, setCurrentAnim] = useState<string>('');
     const [spineSkins, setSpineSkins] = useState<string[]>([]);
     const [currentSpineSkin, setCurrentSpineSkin] = useState<string>('Normal');
 
-    // Timeline State
+    // 타임라인 상태
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
 
@@ -31,7 +30,7 @@ export function useSpinePlayer(
 
         const defaultAnim = viewMode === 'ingame' ? 'Idle' : 'Idle_1';
 
-        // Cleanup previous instance
+        // 이전 인스턴스 정리
         if (playerInstance.current) {
             try {
                 playerInstance.current.dispose();
@@ -45,7 +44,6 @@ export function useSpinePlayer(
              playerRef.current.innerHTML = '';
         }
         
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setAnimations([]);
         setCurrentAnim('');
         setCurrentTime(0);
@@ -70,16 +68,12 @@ export function useSpinePlayer(
                     animation: defaultAnim,
                     showControls: false,
                     showLoading: false,
-                    preserveDrawingBuffer: false,
+                    preserveDrawingBuffer: true,
 
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     success: (player: any) => {
-                        // console.log("Spine player loaded");
-
                         if (player.skeleton && player.skeleton.data) {
                             // 애니메이션 목록 추출
                             if (player.skeleton.data.animations) {
-                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                 const animNamesRaw = player.skeleton.data.animations.map((a: any) => a.name);
                                 setAnimations(animNamesRaw);
 
@@ -98,7 +92,6 @@ export function useSpinePlayer(
 
                             // 스킨 목록 추출
                             if (player.skeleton.data.skins) {
-                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                 const skinNames = player.skeleton.data.skins.map((s: any) => s.name);
                                 setSpineSkins(skinNames);
 
@@ -116,7 +109,6 @@ export function useSpinePlayer(
                         }
                     },
 
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     error: (_player: any, reason: string) => {
                         console.error("Spine player error:", reason);
                         if (playerRef.current) {
@@ -129,13 +121,12 @@ export function useSpinePlayer(
             }
         }
 
-        // Cleanup function when component unmounts or dependencies change
         return () => {
             if (playerInstance.current) {
                 try {
                     playerInstance.current.dispose();
-                } catch { 
-                    // Ignore dispose errors on unmount
+                } catch {
+
                 }
                 playerInstance.current = null;
             }
@@ -176,7 +167,7 @@ export function useSpinePlayer(
         };
     }, [duration]);
 
-    // Actions
+    // 액션 핸들러
     const handlePlayPause = useCallback(() => {
         if (playerInstance.current) {
             playerInstance.current.paused = !playerInstance.current.paused;
