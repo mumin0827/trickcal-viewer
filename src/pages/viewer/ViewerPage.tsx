@@ -173,7 +173,7 @@ const ViewerPage: React.FC = () => {
                                     onClick={() => setViewMode(prev => prev === 'standing' ? 'ingame' : 'standing')}
                                     title={viewMode === 'ingame' ? "Switch to Standing Motion" : "Switch to In-Game Motion"}
                                 >
-                                    {viewMode === 'ingame' ? '인게임' : '스텐딩'}
+                                    {viewMode === 'ingame' ? '인게임' : '스탠딩'}
                                 </button>
                             )}
                             <button
