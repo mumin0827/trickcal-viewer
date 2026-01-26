@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
+import { getChoseong } from 'es-hangul';
 import type { Character, Skin } from '../types';
-import { matchHangul } from '../utils/hangul';
 import { RESOURCE_PATHS } from '../routers/paths';
 
 export function useCharacters() {
@@ -34,15 +34,31 @@ export function useCharacters() {
         }
     };
 
+    // 초성 맵 생성 (최적화)
+    const choseongMap = useMemo(() => {
+        return new Map(
+            characters.map(char => [
+                char.name_kr,
+                getChoseong(char.name_kr)
+            ])
+        );
+    }, [characters]);
+
     // 검색 필터링 (Memoization 적용)
     const filteredCharacters = useMemo(() => {
+        const query = searchTerm.trim();
+        if (!query) return characters;
+
+        const lowerQuery = query.toLowerCase();
+
         return characters.filter((char) => {
-            const lowerQuery = searchTerm.toLowerCase();
             const matchName = char.name.toLowerCase().includes(lowerQuery);
-            const matchKr = matchHangul(char.name_kr, searchTerm);
-            return matchName || matchKr;
+            const matchKr = char.name_kr.includes(query);
+            const matchChoseong = choseongMap.get(char.name_kr)?.includes(query);
+            
+            return matchName || matchKr || matchChoseong;
         });
-    }, [characters, searchTerm]);
+    }, [characters, searchTerm, choseongMap]);
 
     return {
         isLoading,
