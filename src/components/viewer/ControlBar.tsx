@@ -117,17 +117,17 @@ const ControlBar: React.FC<ControlBarProps> = ({
 
                 <div className="timeline-bottom">
                     <div className="transport">
-                        <button type="button" className="icon-btn transport-btn" onClick={onPrev} title="Prev">
+                        <button type="button" className="icon-btn transport-btn" onClick={onPrev}>
                             <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/Deck_Icon_Skip.png`} alt="Prev" className="btn-icon" style={{ transform: "scaleX(-1)" }} />
                         </button>
-                        <button onClick={onPlayPause} className="icon-btn transport-btn play-main" title="Play/Pause">
+                        <button onClick={onPlayPause} className="icon-btn transport-btn play-main">
                             {isPlaying ? (
                                 <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/TutorialVideoGuideIcon_Stop2.png`} alt="Pause" className="btn-icon" />
                             ) : (
                                 <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/TutorialVideoGuideIcon_Play2.png`} alt="Play" className="btn-icon" />
                             )}
                         </button>
-                        <button type="button" className="icon-btn transport-btn" onClick={onNext} title="Next">
+                        <button type="button" className="icon-btn transport-btn" onClick={onNext}>
                             <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/Deck_Icon_Skip.png`} alt="Next" className="btn-icon" />
                         </button>
                     </div>
@@ -138,7 +138,6 @@ const ControlBar: React.FC<ControlBarProps> = ({
                                 type="button"
                                 className={`mini-select-btn ${openMenu === "motion" ? "active" : ""}`}
                                 onClick={() => setOpenMenu(openMenu === "motion" ? null : "motion")}
-                                title={currentAnim ? `모션: ${currentAnim}` : "Motion"}
                             >
                                 <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/HeroSkin_Icon_DetailsBG.png`} alt="Motion" className="btn-icon" />
                             </button>
@@ -165,7 +164,6 @@ const ControlBar: React.FC<ControlBarProps> = ({
                                 type="button"
                                 className={`mini-select-btn ${openMenu === "spineSkin" ? "active" : ""}`}
                                 onClick={() => setOpenMenu(openMenu === "spineSkin" ? null : "spineSkin")}
-                                title={currentSpineSkin ? `기본 스킨: ${currentSpineSkin}` : "Personal Skin"}
                             >
                                 <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/HeroSkin_Icon_Weared.png`} alt="Personal Skin" className="btn-icon" />
                             </button>
@@ -192,7 +190,6 @@ const ControlBar: React.FC<ControlBarProps> = ({
                                 type="button"
                                 className={`mini-select-btn ${openMenu === "skin" ? "active" : ""}`}
                                 onClick={() => setOpenMenu(openMenu === "skin" ? null : "skin")}
-                                title={selectedSkin?.name ? `스킨: ${selectedSkin.name}` : "Skin"}
                             >
                                 <img src={`${RESOURCE_PATHS.IMAGE.ICONS}/HeroSkin_Icon_WearedBG.png`} alt="Skin" className="btn-icon" />
                             </button>

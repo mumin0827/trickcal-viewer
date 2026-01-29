@@ -38,7 +38,7 @@ const ViewerPage: React.FC = () => {
 
     const [isCharModalOpen, setIsCharModalOpen] = React.useState(false);
     const [isExportModalOpen, setIsExportModalOpen] = React.useState(false);
-
+    
     const [showLoading, setShowLoading] = React.useState(true);
     const [isExiting, setIsExiting] = React.useState(false);
 
@@ -50,7 +50,7 @@ const ViewerPage: React.FC = () => {
             setIsExiting(true);
             const timer = setTimeout(() => {
                 setShowLoading(false);
-            }, 500);
+            }, 500); 
             return () => clearTimeout(timer);
         }
     }, [isLoading]);
@@ -157,82 +157,97 @@ const ViewerPage: React.FC = () => {
 
     return (
         <div className="app-container">
-            <Header />
+            <Header
+                onOpenExport={openExportModal}
+                isRecording={isRecording}
+                hasSelectedChar={!!selectedChar}
+            />
 
             <main className="viewer-container">
                 {showRecLoading && <Loading message="추출 중..." isExiting={isRecExiting} />}
 
-                <div className="stage-card">
-                    <div className="top-controls">
-                        <div className="record-controls">
-                            {selectedChar && selectedSkin && (
-                                <button
-                                    className="record-btn"
-                                    onClick={openExportModal}
-                                    disabled={isRecording}
-                                    title="내보내기 설정"
-                                >
-                                    {isRecording ? '⏳' : '내보내기'}
-                                </button>
-                            )}
-                        </div>
-                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                            {selectedChar && (
-                                <button
-                                    className={`mode-toggle-btn ${viewMode === 'ingame' ? 'active' : ''}`}
-                                    onClick={() => hasIngameMotion && setViewMode(prev => prev === 'standing' ? 'ingame' : 'standing')}
-                                    disabled={!hasIngameMotion}
-                                    style={!hasIngameMotion ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-                                    title={!hasIngameMotion ? "인게임 모션이 없습니다" : (viewMode === 'ingame' ? "Switch to Standing Motion" : "Switch to In-Game Motion")}
-                                >
-                                    {viewMode === 'ingame' ? '인게임' : '스탠딩'}
-                                </button>
-                            )}
-                            <button
-                                className={`char-select-btn ${selectedChar ? 'has-char' : ''}`}
-                                onClick={() => setIsCharModalOpen(true)}
-                            >
-                                {selectedChar && (
-                                    <img
-                                        src={`${RESOURCE_PATHS.IMAGE.SKILLS}/Icon_GraduateSKill_${selectedChar.id}.webp`}
-                                        alt=""
-                                        className="btn-char-icon"
-                                        onError={(e) => (e.currentTarget.style.display = 'none')}
-                                    />
+                <div className="w-full flex flex-col gap-4 mx-auto transition-all items-center md:max-w-[min(900px,calc((100vh-420px)*1.7777))] cq-wrapper">
+
+                    <div className="stage-card w-full aspect-[4/3] md:aspect-video h-auto">
+                        <div className={`top-controls ${!selectedChar ? 'no-char-mobile-center' : ''}`}>
+                            <div className="record-controls">
+                                {selectedChar && selectedSkin && (
+                                    <button
+                                        className="record-btn hidden md:flex cq-hide-on-narrow"
+                                        onClick={openExportModal}
+                                        disabled={isRecording}
+                                    >
+                                        {isRecording ? '⏳' : '내보내기'}
+                                    </button>
                                 )}
-                                {selectedChar ? selectedChar.name_kr : "사도 선택"}
-                            </button>
+
+                                {selectedChar && (
+                                    <button
+                                        className={`mode-toggle-btn md:hidden cq-show-on-narrow ${viewMode === 'ingame' ? 'active' : ''}`}
+                                        onClick={() => setViewMode(prev => prev === 'standing' ? 'ingame' : 'standing')}
+                                    >
+                                        {viewMode === 'ingame' ? '인게임' : '스탠딩'}
+                                    </button>
+                                )}
+                            </div>
+
+                            <div className="controls-group-right">
+                                {selectedChar && (
+                                    <button
+                                        className={`mode-toggle-btn hidden md:flex cq-hide-desktop-toggle ${viewMode === 'ingame' ? 'active' : ''}`}
+                                        onClick={() => hasIngameMotion && setViewMode(prev => prev === 'standing' ? 'ingame' : 'standing')}
+                                        disabled={!hasIngameMotion}
+                                        style={!hasIngameMotion ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+                                    >
+                                        {viewMode === 'ingame' ? '인게임' : '스탠딩'}
+                                    </button>
+                                )}
+                                <button
+                                    className={`char-select-btn ${selectedChar ? 'has-char' : 'no-char'}`}
+                                    onClick={() => setIsCharModalOpen(true)}
+                                >
+                                    {selectedChar && (
+                                        <img
+                                            src={`${RESOURCE_PATHS.IMAGE.SKILLS}/Icon_GraduateSKill_${selectedChar.id}.webp`}
+                                            alt=""
+                                            className="btn-char-icon"
+                                            onError={(e) => (e.currentTarget.style.display = 'none')}
+                                        />
+                                    )}
+                                    {selectedChar ? selectedChar.name_kr : "사도 선택"}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="player-wrapper">
+                            {!selectedChar && <div className="placeholder-msg md:block hidden">사도를 선택하세요!</div>}
+                            <div id="player-container" ref={playerRef}></div>
                         </div>
                     </div>
 
-                    <div className="player-wrapper">
-                        {!selectedChar && <div className="placeholder-msg">사도를 선택하세요!</div>}
-                        <div id="player-container" ref={playerRef}></div>
-                    </div>
+                    {selectedChar && selectedSkin && (
+                        <ControlBar
+                            currentTime={currentTime}
+                            duration={duration}
+                            isPlaying={isPlaying}
+                            onPlayPause={handlePlayPause}
+                            onSeek={handleSeek}
+                            onScrubStart={handleScrubStart}
+                            onScrubEnd={handleScrubEnd}
+                            onNext={handleNextMotion}
+                            onPrev={handlePrevMotion}
+                            animations={animations}
+                            currentAnim={currentAnim}
+                            onAnimChange={handleAnimationChange}
+                            skins={selectedChar.skins}
+                            selectedSkin={selectedSkin}
+                            onSkinChange={setSelectedSkin}
+                            spineSkins={spineSkins}
+                            currentSpineSkin={currentSpineSkin}
+                            onSpineSkinChange={handleSpineSkinChange}
+                        />
+                    )}
                 </div>
-
-                {selectedChar && selectedSkin && (
-                    <ControlBar
-                        currentTime={currentTime}
-                        duration={duration}
-                        isPlaying={isPlaying}
-                        onPlayPause={handlePlayPause}
-                        onSeek={handleSeek}
-                        onScrubStart={handleScrubStart}
-                        onScrubEnd={handleScrubEnd}
-                        onNext={handleNextMotion}
-                        onPrev={handlePrevMotion}
-                        animations={animations}
-                        currentAnim={currentAnim}
-                        onAnimChange={handleAnimationChange}
-                        skins={selectedChar.skins}
-                        selectedSkin={selectedSkin}
-                        onSkinChange={setSelectedSkin}
-                        spineSkins={spineSkins}
-                        currentSpineSkin={currentSpineSkin}
-                        onSpineSkinChange={handleSpineSkinChange}
-                    />
-                )}
             </main>
 
             <WaveBackground />

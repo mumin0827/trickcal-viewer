@@ -28,6 +28,7 @@
 
   /* --- Semantic Theme Variables (Light) --- */
   --header-bg: rgba(250, 255, 238, 0.95);
+  --footer-bg: #faffee;
   --header-border: rgba(127, 192, 67, 0.18);
 
   --text-main: #333333;
@@ -72,6 +73,7 @@
 
   /* --- Semantic Theme Variables (Dark) --- */
   --header-bg: rgba(30, 30, 30, 0.95);
+  --footer-bg: #1e1e1e;
   --header-border: rgba(255, 255, 255, 0.1);
 
   --text-main: #e0e0e0;
@@ -99,28 +101,28 @@
   --char-img-bg: #2a2a2a;
 }
 
-html, body, #root {
-  font-family: "ONE Mobile POP", sans-serif;
-  color: var(--text-main);
-  width: 100vw;
-  height: 100vh;
+html, body {
+  width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  display: flex;
-  transition: color 0.3s ease;
-}
-
-html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: var(--tc-bg);
+  font-family: "ONE Mobile POP", sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
-  background-color: var(--tc-bg);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   isolation: isolate;
-  transition: background-color 0.3s;
-  max-width: 100%;
+  background-color: var(--tc-bg);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s ease;
 }
 
 button, input, select, textarea {
@@ -152,7 +154,7 @@ button {
 /* Theme Toggle */
 .theme-toggle {
     padding: 0.5rem;
-    border-radius: 9999px; /* rounded-full */
+    border-radius: 9999px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,7 +165,7 @@ button {
 }
 
 .dark .theme-toggle {
-    color: #e4e4e7; /* zinc-200 */
+    color: #e4e4e7;
 }
 
 .theme-toggle:hover {
@@ -228,4 +230,499 @@ button {
     color: var(--text-main);
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+/* =========================================================
+   Responsive Utils
+========================================================= */
+.controls-group-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* =========================================================
+   Mobile Responsiveness
+========================================================= */
+@media (max-width: 768px) {
+  .app-header {
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .app-title {
+    font-size: 1.1rem;
+  }
+
+  .app-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .viewer-container {
+    padding: 16px;
+    gap: 16px;
+    height: auto;
+    min-height: 100%;
+    justify-content: flex-start;
+  }
+
+  .stage-card {
+    height: auto;
+    min-height: 280px;
+    border-width: 4px;
+    border-radius: 24px;
+  }
+
+  .stage-card::before {
+    inset: 4px;
+    border-width: 3px;
+    border-radius: 18px;
+  }
+
+  .top-controls {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .controls-group-right {
+    gap: 6px;
+  }
+
+  .record-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .char-select-btn {
+    height: 38px;
+    padding: 0 12px;
+    font-size: 0.85rem;
+    gap: 6px;
+    border-width: 2px;
+  }
+
+  .char-select-btn.has-char {
+    padding: 0 12px 0 4px;
+  }
+
+  .btn-char-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .mode-toggle-btn {
+    height: 38px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+    border-width: 2px;
+  }
+
+  .controls-card {
+    padding: 16px;
+    border-width: 4px;
+    border-radius: 24px;
+  }
+
+  .controls-card::before {
+    inset: 4px;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .controls-content {
+    gap: 12px;
+  }
+
+  .timeline-top {
+    gap: 8px;
+  }
+
+  .time-chip {
+    width: 50px;
+    font-size: 0.75rem;
+    padding: 4px 0;
+  }
+
+  .timeline-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+  }
+
+  .timeline-bottom {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .transport {
+    padding: 6px 14px;
+    gap: 10px;
+    border-width: 2px;
+  }
+
+  .transport-btn, .icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    border-width: 2px;
+  }
+
+  .mini-select-btn {
+    width: 40px;
+    height: 40px;
+    border-width: 2px;
+  }
+
+  .dropdown-menu {
+    min-width: 150px;
+    bottom: calc(100% + 8px);
+    right: -10px;
+  }
+
+  .modal-content {
+    width: 92%;
+    height: 80vh;
+    padding: 20px;
+    border-width: 4px;
+    border-radius: 24px;
+  }
+
+  .modal-content.export-modal {
+    width: 90%;
+    max-width: 360px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .modal-content::before {
+    inset: 6px;
+    border-width: 3px;
+    border-radius: 18px;
+  }
+
+  .modal-header {
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border-width: 2px;
+    border-radius: 16px;
+  }
+
+  .modal-header h3 {
+    font-size: 0.95rem;
+  }
+
+  .search-input {
+    width: 130px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .char-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 12px;
+    padding: 8px;
+    border-radius: 20px;
+  }
+
+  .char-grid-item {
+    padding: 10px 6px;
+    border-width: 2px;
+    border-radius: 18px;
+    gap: 8px;
+  }
+
+  .char-img-wrapper {
+    width: 52px;
+    height: 52px;
+    border-width: 2px;
+  }
+
+  .char-name {
+    font-size: 0.7rem;
+  }
+
+  .close-modal-btn {
+    margin-top: 12px;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+
+  .loading-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .loading-text {
+    font-size: 0.9rem;
+  }
+
+  .loading-icons {
+    gap: 0.6rem;
+  }
+}
+
+/* =========================================================
+   Safe Area & Scroll
+========================================================= */
+
+:root {
+  --app-footer-h: 60px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+
+  height: auto;
+  overflow: visible;
+}
+
+.app-container {
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+
+  padding-bottom: calc(var(--app-footer-h) + env(safe-area-inset-bottom));
+}
+
+.app-header {
+  padding-top: env(safe-area-inset-top);
+  height: auto;
+  min-height: 64px;
+  box-sizing: content-box;
+  flex-shrink: 0;
+}
+
+.header-content {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    min-height: 56px;
+  }
+
+  .header-content {
+    height: 56px;
+  }
+}
+
+.app-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
+  min-height: var(--app-footer-h);
+
+  margin-top: 0;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  z-index: 2000;
+}
+
+@media (min-width: 769px) {
+  :root {
+    --app-footer-h: 40px;
+  }
+  .footer-content {
+    padding: 8px 0;
+  }
+}
+
+
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.copyright {
+  color: var(--text-disabled);
+  font-size: 0.7rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.viewer-container {
+  flex: 1;
+  overflow: visible;
+  height: auto;
+  min-height: 0;
+}
+
+#root::before {
+  position: fixed;
+  top: -240px;
+  left: -240px;
+  width: calc(100vw + 480px);
+  height: calc(100vh + 480px);
+  z-index: 1;
+}
+
+
+/* =========================================================
+   Mobile Menu & Responsive Visibility
+========================================================= */
+
+.desktop-only {
+  display: flex !important;
+}
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.hamburger-btn:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.dark .hamburger-btn:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.mobile-menu-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 12px;
+  width: 170px;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--header-border);
+  border-radius: 12px;
+  box-shadow: var(--tc-card-shadow);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 3000;
+  animation: mobile-menu-pop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top right;
+}
+
+@keyframes mobile-menu-pop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.mobile-menu-item {
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.mobile-menu-item:hover {
+  background-color: var(--tc-bg);
+  color: var(--tc-green-dark);
+}
+
+.mobile-menu-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.mobile-menu-item .theme-toggle {
+  padding: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  background: none !important;
+  color: currentColor !important;
+}
+
+
+/* =========================================================
+   Mobile: Center Character Select Button
+========================================================= */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .no-char-mobile-center {
+    justify-content: center !important;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    inset: 0 !important;
+  }
+
+  .no-char-mobile-center .record-controls {
+    display: none;
+  }
+
+  .no-char-mobile-center .controls-group-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* =========================================================
+     Mobile Optimizations: Hide Wave & Opaque Footer
+  ========================================================= */
+  @media (max-width: 768px) {
+    .wave-background {
+      display: none !important;
+    }
+  }
 }

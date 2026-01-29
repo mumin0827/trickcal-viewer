@@ -3,12 +3,12 @@
 ========================================================= */
 #root::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: -240px;
   left: -240px;
   width: calc(100% + 480px);
   height: calc(100% + 480px);
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
 
   background-image: url("/image/pattern/HeroLobbyPattern.svg");
@@ -42,10 +42,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   position: relative;
   background: transparent;
-  overflow: hidden;
 }
 
 
@@ -62,7 +61,8 @@
   padding: 0 40px;
   z-index: 2000;
   flex-shrink: 0;
-  position: relative;
+  position: sticky;
+  top: 0;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -129,9 +129,8 @@
   width: 100%;
   box-sizing: border-box;
   gap: 20px;
-  overflow-y: auto;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 
@@ -140,13 +139,13 @@
 ========================================================= */
 .app-footer {
   height: 50px;
-  background-color: var(--header-bg);
+  background-color: var(--footer-bg);
   border-top: 1px solid var(--header-border);
   display: flex;
   align-items: center;
   padding: 0 40px;
   flex-shrink: 0;
-  position: relative;
+  position: fixed;
   z-index: 2000;
   transition: background-color 0.3s, border-color 0.3s;
 }
@@ -168,11 +167,16 @@
 /* =========================================================
    Cards (Common)
 ========================================================= */
-.stage-card,
+.stage-card {
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
 .controls-card,
 .tc-controls-card {
   width: 100%;
-  max-width: 900px;
   box-sizing: border-box;
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
@@ -382,7 +386,7 @@
   border-radius: 32px;
   box-shadow: var(--tc-card-shadow);
   position: relative;
-  z-index: 10;
+  z-index: 3000;
 }
 
 .controls-card::before {
@@ -421,6 +425,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  justify-content: center;
 }
 
 .time-chip {
@@ -447,7 +453,7 @@
 .timeline-slider,
 .tc-slider {
   flex: 1;
-  min-width: 180px;
+  min-width: 0;
   cursor: pointer;
   height: 14px;
   border-radius: 999px;
@@ -956,6 +962,84 @@
   box-shadow: none;
 }
 
+.modal-content.export-modal {
+  max-width: 440px;
+  height: auto;
+  padding: 30px;
+}
+
+.export-fps-slider .tc-slider {
+  height: 10px;
+}
+
+.export-fps-slider .tc-slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-width: 3px;
+}
+
+.export-fps-slider .tc-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-width: 3px;
+}
+
+@media (max-width: 640px) {
+  .modal-content {
+    padding: 20px;
+    border-radius: 24px;
+    width: 95%;
+  }
+
+  .modal-content::before {
+    inset: 6px;
+    border-radius: 18px;
+  }
+
+  .modal-content.export-modal {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .modal-header {
+    padding: 12px 16px;
+    margin-bottom: 15px;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .cancel-modal-btn,
+  .close-modal-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .export-format-tabs {
+    gap: 6px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .export-format-tabs button {
+    height: 38px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .resolution-options {
+    gap: 8px !important;
+    padding: 8px !important;
+  }
+
+  .resolution-options span:first-of-type {
+    font-size: 0.8rem !important;
+  }
+
+  .resolution-options span:last-of-type {
+    font-size: 0.65rem !important;
+  }
+}
+
 
 /* =========================================================
    Wave Background
@@ -969,7 +1053,7 @@
   height: 290px;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .wave-track {
@@ -993,7 +1077,7 @@
 .wave-back {
   opacity: 0.9;
   animation-duration: 45s;
-  z-index: 0;
+  z-index: 1;
 }
 
 .wave-back path {

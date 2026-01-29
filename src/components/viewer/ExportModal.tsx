@@ -22,8 +22,8 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
         { actual: 50, display: 50, label: '0.02s' }
     ];
 
-    const [stepIndex, setStepIndex] = useState(7); // GIF 기본값 (30 FPS)
-    const [zipFps, setZipFps] = useState(30);      // ZIP 기본값
+    const [stepIndex, setStepIndex] = useState(7);
+    const [zipFps, setZipFps] = useState(30);
 
     if (!isOpen) return null;
 
@@ -42,13 +42,12 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
 
     return (
         <div className="modal-overlay">
-            <div className="modal-content" style={{ height: 'auto', maxWidth: '400px', padding: '30px' }}>
+            <div className="modal-content export-modal">
                 <div className="modal-header">
                     <h3 style={{ margin: 0 }}>내보내기 설정</h3>
                 </div>
 
-                {/* 포맷 선택 탭 */}
-                <div style={{ display: 'flex', gap: '10px', marginTop: '20px', borderBottom: '1px solid var(--header-border)', paddingBottom: '20px' }}>
+                <div className="export-format-tabs" style={{ display: 'flex', gap: '10px', marginTop: '10px', borderBottom: '1px solid var(--header-border)', paddingBottom: '20px' }}>
                     {(['gif', 'zip', 'png'] as const).map((fmt) => (
                         <button
                             key={fmt}
@@ -61,8 +60,8 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
                                 borderColor: selectedFormat === fmt ? 'var(--tc-green-dark)' : 'var(--btn-border)',
                                 color: selectedFormat === fmt ? '#fff' : 'var(--btn-text)',
                                 textTransform: 'uppercase',
-                                fontSize: '1rem',
-                                height: '48px',
+                                fontSize: '0.9rem',
+                                height: '44px',
                                 boxShadow: selectedFormat === fmt ? 'none' : 'var(--tc-btn-shadow)',
                                 transform: selectedFormat === fmt ? 'translateY(2px)' : 'none'
                             }}
@@ -72,62 +71,71 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
                     ))}
                 </div>
 
-                <div style={{ padding: '24px 0', display: 'flex', flexDirection: 'column', gap: '20px', zIndex: 1 }}>
-                    <p className="modal-body-text" style={{ minHeight: '40px' }}>
+                <div className="export-modal-body" style={{ padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '16px', zIndex: 1 }}>
+                    <p className="modal-body-text" style={{ minHeight: '36px', fontSize: '0.9rem' }}>
                         {selectedFormat === 'gif' && '사도의 움직이는 이미지를 생성합니다.'}
                         {selectedFormat === 'zip' && '사도의 개별 프레임을 압축 파일(.zip)로 생성합니다.'}
                         {selectedFormat === 'png' && '현재 모션의 첫 프레임을 이미지로 저장합니다.'}
-                        
+
                         {selectedFormat === 'gif' && (
                             <>
                                 <br />
-                                <span style={{ fontSize: '0.85rem', color: '#666' }}>
+                                <span style={{ fontSize: '0.8rem', color: '#666' }}>
                                     ※ GIF 포맷 최적화 값으로 고정됩니다. (최대 50 FPS)
                                 </span>
                             </>
                         )}
                     </p>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <label className="modal-label">해상도:</label>
                         </div>
-                        <div style={{ display: 'flex', gap: '15px', background: 'rgba(0,0,0,0.03)', padding: '10px 15px', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+                        <div className="resolution-options" style={{ display: 'flex', gap: '10px' }}>
                             {resolutionPresets.map((preset) => (
-                                <label key={preset.value} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', flex: 1 }}>
-                                    <input
-                                        type="radio"
-                                        name="resolution"
-                                        value={preset.value}
-                                        checked={resolution === preset.value}
-                                        onChange={() => setResolution(preset.value)}
-                                        style={{ accentColor: 'var(--tc-green-dark)', width: '18px', height: '18px', cursor: 'pointer' }}
-                                    />
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                        <span style={{ fontSize: '0.95rem', fontWeight: resolution === preset.value ? 'bold' : 'normal', color: 'var(--text-main)' }}>
-                                            {preset.label}
-                                        </span>
-                                        <span style={{ fontSize: '0.75rem', color: 'var(--text-sub)' }}>
-                                            {preset.desc}
-                                        </span>
-                                    </div>
-                                </label>
+                                <button
+                                    key={preset.value}
+                                    onClick={() => setResolution(preset.value)}
+                                    className={resolution === preset.value ? "record-btn active" : "record-btn"}
+                                    style={{
+                                        flex: 1,
+                                        flexDirection: 'column',
+                                        height: 'auto',
+                                        padding: '8px 4px',
+                                        background: resolution === preset.value ? 'var(--tc-green)' : 'var(--btn-bg)',
+                                        borderColor: resolution === preset.value ? 'var(--tc-green-dark)' : 'var(--btn-border)',
+                                        color: resolution === preset.value ? '#fff' : 'var(--btn-text)',
+                                        boxShadow: resolution === preset.value ? 'none' : 'var(--tc-btn-shadow)',
+                                        transform: resolution === preset.value ? 'translateY(2px)' : 'none'
+                                    }}
+                                >
+                                    <span style={{ fontSize: '0.85rem', fontWeight: 'bold' }}>
+                                        {preset.label}
+                                    </span>
+                                    <span style={{
+                                        fontSize: '0.7rem',
+                                        opacity: resolution === preset.value ? 0.9 : 0.6,
+                                        color: resolution === preset.value ? '#fff' : 'var(--text-sub)'
+                                    }}>
+                                        {preset.desc}
+                                    </span>
+                                </button>
                             ))}
                         </div>
                     </div>
 
                     {selectedFormat !== 'png' && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <label className="modal-label">프레임 (FPS):</label>
                                 <div style={{ textAlign: 'right' }}>
-                                    <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--tc-green-dark)', lineHeight: 1 }}>
+                                    <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--tc-green-dark)', lineHeight: 1 }}>
                                         {selectedFormat === 'gif' ? currentStep.display : zipFps}
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+
+                            <div className="export-fps-slider" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                                 {selectedFormat === 'gif' ? (
                                     <input
                                         type="range"
@@ -160,12 +168,14 @@ const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, onConfirm })
                     <button 
                         className="cancel-modal-btn" 
                         onClick={onClose}
+                        style={{ alignSelf: 'auto' }}
                     >
                         취소
                     </button>
                     <button 
                         className="close-modal-btn" 
                         onClick={handleConfirm}
+                        style={{ alignSelf: 'auto', marginTop: 0 }}
                     >
                         내보내기
                     </button>

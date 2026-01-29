@@ -9,7 +9,6 @@ const ThemeToggle: React.FC = () => {
             onClick={toggleTheme}
             aria-pressed={theme === 'dark'}
             className="theme-toggle"
-            title="테마 전환"
         >
             {theme === 'dark' ? (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="toggle-icon">
