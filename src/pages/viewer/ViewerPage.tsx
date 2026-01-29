@@ -26,9 +26,19 @@ const ViewerPage: React.FC = () => {
     } = useCharacters();
 
     const [viewMode, setViewMode] = React.useState<'standing' | 'ingame'>('standing');
+
+    const hasIngameMotion = selectedSkin?.hasIngame !== false;
+    const effectiveViewMode = hasIngameMotion ? viewMode : 'standing';
+
+    useEffect(() => {
+        if (!hasIngameMotion && viewMode === 'ingame') {
+            setViewMode('standing');
+        }
+    }, [hasIngameMotion, viewMode]);
+
     const [isCharModalOpen, setIsCharModalOpen] = React.useState(false);
     const [isExportModalOpen, setIsExportModalOpen] = React.useState(false);
-    
+
     const [showLoading, setShowLoading] = React.useState(true);
     const [isExiting, setIsExiting] = React.useState(false);
 
@@ -40,7 +50,7 @@ const ViewerPage: React.FC = () => {
             setIsExiting(true);
             const timer = setTimeout(() => {
                 setShowLoading(false);
-            }, 500); 
+            }, 500);
             return () => clearTimeout(timer);
         }
     }, [isLoading]);
@@ -62,12 +72,12 @@ const ViewerPage: React.FC = () => {
         handleSeek,
         handleNextMotion,
         handlePrevMotion
-    } = useSpinePlayer(selectedChar, selectedSkin, playerRef, viewMode);
+    } = useSpinePlayer(selectedChar, selectedSkin, playerRef, effectiveViewMode);
 
     const { isRecording, handleExtract } = useRecorder(
         selectedChar,
         selectedSkin,
-        viewMode,
+        effectiveViewMode,
         currentAnim,
         duration,
         currentSpineSkin
@@ -170,8 +180,10 @@ const ViewerPage: React.FC = () => {
                             {selectedChar && (
                                 <button
                                     className={`mode-toggle-btn ${viewMode === 'ingame' ? 'active' : ''}`}
-                                    onClick={() => setViewMode(prev => prev === 'standing' ? 'ingame' : 'standing')}
-                                    title={viewMode === 'ingame' ? "Switch to Standing Motion" : "Switch to In-Game Motion"}
+                                    onClick={() => hasIngameMotion && setViewMode(prev => prev === 'standing' ? 'ingame' : 'standing')}
+                                    disabled={!hasIngameMotion}
+                                    style={!hasIngameMotion ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+                                    title={!hasIngameMotion ? "인게임 모션이 없습니다" : (viewMode === 'ingame' ? "Switch to Standing Motion" : "Switch to In-Game Motion")}
                                 >
                                     {viewMode === 'ingame' ? '인게임' : '스탠딩'}
                                 </button>

@@ -442,6 +442,11 @@
       {
         "name": "Skin1",
         "file": "DayaPureShineSkin1"
+      },
+      {
+        "name": "Skin2",
+        "file": "DayaPureShineSkin2",
+        "hasIngame": false
       }
     ]
   },
