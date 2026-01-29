@@ -431,6 +431,21 @@
     ]
   },
   {
+    "id": "DayaPureShine",
+    "name": "DayaPureShine",
+    "name_kr": "다야(퓨어사인)",
+    "skins": [
+      {
+        "name": "Default",
+        "file": "DayaPureShine"
+      },
+      {
+        "name": "Skin1",
+        "file": "DayaPureShineSkin1"
+      }
+    ]
+  },
+  {
     "id": "Diana",
     "name": "Diana",
     "name_kr": "디아나",
