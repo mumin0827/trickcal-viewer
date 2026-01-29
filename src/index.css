@@ -202,7 +202,7 @@ button {
     align-items: center;
     background-color: var(--tc-bg);
     backdrop-filter: blur(4px);
-    z-index: 500;
+    z-index: 3500;
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, background-color 0.3s ease;
     opacity: 1;
     visibility: visible;
@@ -545,7 +545,7 @@ button {
   width: 100%;
   box-sizing: border-box;
 
-  z-index: 2000;
+  z-index: 4000;
 }
 
 @media (min-width: 769px) {
