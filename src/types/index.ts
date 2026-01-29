@@ -1,6 +1,7 @@
 export interface Skin {
     name: string;
     file: string;
+    hasIngame?: boolean;
 }
 
 export interface Character {
