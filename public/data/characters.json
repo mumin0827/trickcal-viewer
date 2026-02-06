@@ -1,0 +1,2799 @@
+[
+    {
+        "id": "Alice",
+        "name": "Alice",
+        "name_kr": "앨리스",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Alice"
+            },
+            {
+                "name": "Skin1",
+                "file": "AliceSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "AliceSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "AliceSkin3"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Allet",
+        "name": "Allet",
+        "name_kr": "알레트",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Allet"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 1,
+        "race": 1,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Amelia",
+        "name": "Amelia",
+        "name_kr": "아멜리아",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Amelia"
+            },
+            {
+                "name": "Skin1",
+                "file": "AmeliaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "AmeliaSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "AmeliaSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "AmeliaSkin4"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Arco",
+        "name": "Arco",
+        "name_kr": "아르코",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Arco"
+            },
+            {
+                "name": "Skin1",
+                "file": "ArcoSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ArcoSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Arnet",
+        "name": "Arnet",
+        "name_kr": "아네트",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Arnet"
+            },
+            {
+                "name": "Skin1",
+                "file": "ArnetSkin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Asana",
+        "name": "Asana",
+        "name_kr": "아사나",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Asana"
+            },
+            {
+                "name": "Skin1",
+                "file": "AsanaSkin1"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Ashur",
+        "name": "Ashur",
+        "name_kr": "에슈르",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ashur"
+            },
+            {
+                "name": "Skin1",
+                "file": "AshurSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "AshurSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Aya",
+        "name": "Aya",
+        "name_kr": "아야",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Aya"
+            },
+            {
+                "name": "Skin1",
+                "file": "AyaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "AyaSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "AyaSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "AyaSkin4"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Ayla",
+        "name": "Ayla",
+        "name_kr": "아일라",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ayla"
+            },
+            {
+                "name": "Skin1",
+                "file": "AylaSkin1"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Bana",
+        "name": "Bana",
+        "name_kr": "바나",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Bana"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 2,
+        "race": 3,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Barie",
+        "name": "Barie",
+        "name_kr": "바리에",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Barie"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 2,
+        "race": 6,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Barong",
+        "name": "Barong",
+        "name_kr": "바롱",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Barong"
+            },
+            {
+                "name": "Skin1",
+                "file": "BarongSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "BarongSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "BarongSkin3"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Belita",
+        "name": "Belita",
+        "name_kr": "벨리타",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Belita"
+            },
+            {
+                "name": "Skin1",
+                "file": "BelitaSkin1"
+            },
+            {
+                "name": "Skin3",
+                "file": "BelitaSkin3"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Beni",
+        "name": "Beni",
+        "name_kr": "베니",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Beni"
+            },
+            {
+                "name": "Skin1",
+                "file": "BeniSkin1"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 2,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "BeniBeni",
+        "name": "BeniBeni",
+        "name_kr": "베니(베니)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "BeniBeni"
+            },
+            {
+                "name": "Skin1",
+                "file": "BeniBeniSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "BigWood",
+        "name": "BigWood",
+        "name_kr": "빅우드",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "BigWood"
+            },
+            {
+                "name": "Skin1",
+                "file": "BigWoodSkin1"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 2,
+        "race": 5,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Blanchet",
+        "name": "Blanchet",
+        "name_kr": "블랑셰",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Blanchet"
+            },
+            {
+                "name": "Skin1",
+                "file": "BlanchetSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "BlanchetSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Butter",
+        "name": "Butter",
+        "name_kr": "버터",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Butter"
+            },
+            {
+                "name": "Skin1",
+                "file": "ButterSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ButterSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "ButterSkin3"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Canna",
+        "name": "Canna",
+        "name_kr": "칸나",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Canna"
+            },
+            {
+                "name": "Skin1",
+                "file": "CannaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "CannaSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Canta",
+        "name": "Canta",
+        "name_kr": "칸타",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Canta"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 2,
+        "race": 2,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Carren",
+        "name": "Carren",
+        "name_kr": "카렌",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Carren"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 1,
+        "race": 2,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Chloe",
+        "name": "Chloe",
+        "name_kr": "클로에",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Chloe"
+            },
+            {
+                "name": "Skin1",
+                "file": "ChloeSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ChloeSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "ChloeSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "ChloeSkin4"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Chopi",
+        "name": "Chopi",
+        "name_kr": "쵸피",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Chopi"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 1,
+        "race": 3,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Cuee",
+        "name": "Cuee",
+        "name_kr": "큐이",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Cuee"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 1,
+        "race": 2,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Daya",
+        "name": "Daya",
+        "name_kr": "다야",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Daya"
+            },
+            {
+                "name": "Skin1",
+                "file": "DayaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "DayaSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "DayaSkin3"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "DayaPureShine",
+        "name": "DayaPureShine",
+        "name_kr": "다야(퓨어샤인)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "DayaPureShine"
+            },
+            {
+                "name": "Skin1",
+                "file": "DayaPureShineSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "DayaPureShineSkin2",
+                "hasIngame": false
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Diana",
+        "name": "Diana",
+        "name_kr": "디아나",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Diana"
+            },
+            {
+                "name": "Skin1",
+                "file": "DianaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "DianaSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "DianaSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "DianaSkin4"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "DianaYester",
+        "name": "DianaYester",
+        "name_kr": "디아나(왕년)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "DianaYester"
+            },
+            {
+                "name": "Skin1",
+                "file": "DianaYesterSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "DianaYesterSkin2"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Ed",
+        "name": "Ed",
+        "name_kr": "이드",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ed"
+            },
+            {
+                "name": "Skin1",
+                "file": "EdSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "EdSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "EdSkin3"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Eisia",
+        "name": "Eisia",
+        "name_kr": "아이시아",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Eisia"
+            },
+            {
+                "name": "Skin1",
+                "file": "EisiaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "EisiaSkin2"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Elena",
+        "name": "Elena",
+        "name_kr": "엘레나",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Elena"
+            },
+            {
+                "name": "Skin1",
+                "file": "ElenaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ElenaSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "ElenaSkin3"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Epica",
+        "name": "Epica",
+        "name_kr": "에피카",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Epica"
+            },
+            {
+                "name": "Skin1",
+                "file": "EpicaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "EpicaSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "EpicaSkin3"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Erpin",
+        "name": "Erpin",
+        "name_kr": "에르핀",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Erpin"
+            },
+            {
+                "name": "Skin1",
+                "file": "ErpinSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ErpinSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "ErpinSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "ErpinSkin4"
+            },
+            {
+                "name": "Skin5",
+                "file": "ErpinSkin5"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Espi",
+        "name": "Espi",
+        "name_kr": "에스피",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Espi"
+            },
+            {
+                "name": "Skin1",
+                "file": "EspiSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 2,
+        "race": 4,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 2
+    },
+    {
+        "id": "Festa",
+        "name": "Festa",
+        "name_kr": "페스타",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Festa"
+            },
+            {
+                "name": "Skin1",
+                "file": "FestaSkin1"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 2,
+        "race": 1,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 3
+    },
+    {
+        "id": "Fricle",
+        "name": "Fricle",
+        "name_kr": "프리클",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Fricle"
+            },
+            {
+                "name": "Skin1",
+                "file": "FricleSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "FricleSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "FricleSkin3"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Gabia",
+        "name": "Gabia",
+        "name_kr": "가비아",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Gabia"
+            },
+            {
+                "name": "Skin1",
+                "file": "GabiaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "GabiaSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 2,
+        "race": 5,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Guin",
+        "name": "Guin",
+        "name_kr": "그윈",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Guin"
+            },
+            {
+                "name": "Skin1",
+                "file": "GuinSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "GuinSkin2"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 3
+    },
+    {
+        "id": "Haley",
+        "name": "Haley",
+        "name_kr": "헤일리",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Haley"
+            },
+            {
+                "name": "Skin1",
+                "file": "HaleySkin1"
+            },
+            {
+                "name": "Skin3",
+                "file": "HaleySkin3"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Heidi",
+        "name": "Heidi",
+        "name_kr": "하이디",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Heidi"
+            },
+            {
+                "name": "Skin1",
+                "file": "HeidiSkin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Hilde",
+        "name": "Hilde",
+        "name_kr": "힐데",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Hilde"
+            },
+            {
+                "name": "Skin1",
+                "file": "HildeSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "HildeSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Ifrit",
+        "name": "Ifrit",
+        "name_kr": "이프리트",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ifrit"
+            },
+            {
+                "name": "Skin1",
+                "file": "IfritSkin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 2,
+        "race": 5,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Jade",
+        "name": "Jade",
+        "name_kr": "제이드",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Jade"
+            },
+            {
+                "name": "Skin1",
+                "file": "JadeSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Joanne",
+        "name": "Joanne",
+        "name_kr": "죠안",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Joanne"
+            },
+            {
+                "name": "Skin1",
+                "file": "JoanneSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "JoanneSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "JoanneSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "JoanneSkin4"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 1,
+        "position": 3,
+        "unitClass": 3
+    },
+    {
+        "id": "Jubee",
+        "name": "Jubee",
+        "name_kr": "쥬비",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Jubee"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 2,
+        "race": 5,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Kathy",
+        "name": "Kathy",
+        "name_kr": "캐시",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Kathy"
+            },
+            {
+                "name": "Skin1",
+                "file": "KathySkin1"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Kidian",
+        "name": "Kidian",
+        "name_kr": "키디언",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Kidian"
+            },
+            {
+                "name": "Skin1",
+                "file": "KidianSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "KidianSkin2"
+            },
+            {
+                "name": "Skin4",
+                "file": "KidianSkin4"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Kommy",
+        "name": "Kommy",
+        "name_kr": "코미",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Kommy"
+            },
+            {
+                "name": "Skin1",
+                "file": "KommySkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "KommySkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "KommySwim",
+        "name": "KommySwim",
+        "name_kr": "코미(수영복)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "KommySwim"
+            },
+            {
+                "name": "Skin1",
+                "file": "KommySwimSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "KommySwimSkin2"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Kyarot",
+        "name": "Kyarot",
+        "name_kr": "캬롯",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Kyarot"
+            },
+            {
+                "name": "Skin1",
+                "file": "KyarotSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "KyarotSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "KyarotSkin3"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Laika",
+        "name": "Laika",
+        "name_kr": "라이카",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Laika"
+            },
+            {
+                "name": "Skin1",
+                "file": "LaikaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "LaikaSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Lazy",
+        "name": "Lazy",
+        "name_kr": "레이지",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Lazy"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 1,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Leets",
+        "name": "Leets",
+        "name_kr": "리츠",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Leets"
+            },
+            {
+                "name": "Skin1",
+                "file": "LeetsSkin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Lethe",
+        "name": "Lethe",
+        "name_kr": "레테",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Lethe"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 2,
+        "race": 4,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Levi",
+        "name": "Levi",
+        "name_kr": "레비",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Levi"
+            },
+            {
+                "name": "Skin1",
+                "file": "LeviSkin1"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 2,
+        "race": 6,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Lion",
+        "name": "Lion",
+        "name_kr": "리온",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Lion"
+            },
+            {
+                "name": "Skin1",
+                "file": "LionSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "LionSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "MaestroMK2",
+        "name": "MaestroMK2",
+        "name_kr": "마에스트로 2호",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "MaestroMK2"
+            },
+            {
+                "name": "Skin1",
+                "file": "MaestroMK2Skin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 2,
+        "race": 1,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Mago",
+        "name": "Mago",
+        "name_kr": "마고",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Mago"
+            },
+            {
+                "name": "Skin1",
+                "file": "MagoSkin1"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 2,
+        "race": 2,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Maison",
+        "name": "Maison",
+        "name_kr": "메죵",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Maison"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 1,
+        "race": 4,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Makasha",
+        "name": "Makasha",
+        "name_kr": "마카샤",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Makasha"
+            },
+            {
+                "name": "Skin1",
+                "file": "MakashaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "MakashaSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Marie",
+        "name": "Marie",
+        "name_kr": "마리",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Marie"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 2,
+        "race": 2,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Mayo",
+        "name": "Mayo",
+        "name_kr": "마요",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Mayo"
+            },
+            {
+                "name": "Skin1",
+                "file": "MayoSkin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 2,
+        "race": 2,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "MayoCool",
+        "name": "MayoCool",
+        "name_kr": "마요(멋짐)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "MayoCool"
+            },
+            {
+                "name": "Skin1",
+                "file": "MayoCoolSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "MayoCoolSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Meluna",
+        "name": "Meluna",
+        "name_kr": "멜루나",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Meluna"
+            },
+            {
+                "name": "Skin1",
+                "file": "MelunaSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Miro",
+        "name": "Miro",
+        "name_kr": "미로",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Miro"
+            },
+            {
+                "name": "Skin1",
+                "file": "MiroSkin1"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Momo",
+        "name": "Momo",
+        "name_kr": "모모",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Momo"
+            },
+            {
+                "name": "Skin1",
+                "file": "MomoSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "MomoSkin2"
+            },
+            {
+                "name": "Skin4",
+                "file": "MomoSkin4"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Mute",
+        "name": "Mute",
+        "name_kr": "뮤트",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Mute"
+            },
+            {
+                "name": "Skin1",
+                "file": "MuteSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "MuteSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Mynx",
+        "name": "Mynx",
+        "name_kr": "밍스",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Mynx"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 1,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Naia",
+        "name": "Naia",
+        "name_kr": "나이아",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Naia"
+            },
+            {
+                "name": "Skin1",
+                "file": "NaiaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "NaiaSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Ner",
+        "name": "Ner",
+        "name_kr": "네르",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ner"
+            },
+            {
+                "name": "Skin1",
+                "file": "NerSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "NerSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "NerSkin3"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 3
+    },
+    {
+        "id": "Neti",
+        "name": "Neti",
+        "name_kr": "네티",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Neti"
+            },
+            {
+                "name": "Skin1",
+                "file": "NetiSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "NetiSkin2"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Opal",
+        "name": "Opal",
+        "name_kr": "오팔",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Opal"
+            },
+            {
+                "name": "Skin1",
+                "file": "OpalSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "OpalSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "OpalSkin3"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Orr",
+        "name": "Orr",
+        "name_kr": "오르",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Orr"
+            },
+            {
+                "name": "Skin1",
+                "file": "OrrSkin1"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Patula",
+        "name": "Patula",
+        "name_kr": "파트라",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Patula"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 1,
+        "race": 2,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "Picora",
+        "name": "Picora",
+        "name_kr": "피코라",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Picora"
+            },
+            {
+                "name": "Skin1",
+                "file": "PicoraSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "PicoraSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "PicoraSkin3"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Pira",
+        "name": "Pira",
+        "name_kr": "피라",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Pira"
+            },
+            {
+                "name": "Skin1",
+                "file": "PiraSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "PiraSkin2"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Polan",
+        "name": "Polan",
+        "name_kr": "폴랑",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Polan"
+            },
+            {
+                "name": "Skin1",
+                "file": "PolanSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "PolanSkin2"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Posher",
+        "name": "Posher",
+        "name_kr": "포셔",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Posher"
+            },
+            {
+                "name": "Skin1",
+                "file": "PosherSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "PosherSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "PosherSkin3"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Ran",
+        "name": "Ran",
+        "name_kr": "란",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ran"
+            },
+            {
+                "name": "Skin1",
+                "file": "RanSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "RanSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "RenewaAwaken",
+        "name": "RenewaAwaken",
+        "name_kr": "리뉴아",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "RenewaAwaken"
+            },
+            {
+                "name": "Skin1",
+                "file": "RenewaAwakenSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "RenewaAwakenSkin2"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Ricota",
+        "name": "Ricota",
+        "name_kr": "리코타",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ricota"
+            },
+            {
+                "name": "Skin1",
+                "file": "RicotaSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Rim",
+        "name": "Rim",
+        "name_kr": "림",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Rim"
+            },
+            {
+                "name": "Skin1",
+                "file": "RimSkin1"
+            },
+            {
+                "name": "Skin3",
+                "file": "RimSkin3"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "RimChaos",
+        "name": "RimChaos",
+        "name_kr": "림(혼돈)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "RimChaos"
+            },
+            {
+                "name": "Skin1",
+                "file": "RimChaosSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "RimChaosSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "RimChaosSkin3"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Risty",
+        "name": "Risty",
+        "name_kr": "리스티",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Risty"
+            },
+            {
+                "name": "Skin1",
+                "file": "RistySkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "RistySkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Rohne",
+        "name": "Rohne",
+        "name_kr": "로네",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Rohne"
+            },
+            {
+                "name": "Skin1",
+                "file": "RohneSkin1"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 2,
+        "race": 1,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "RohneMayor",
+        "name": "RohneMayor",
+        "name_kr": "로네(시장)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "RohneMayor"
+            },
+            {
+                "name": "Skin1",
+                "file": "RohneMayorSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "RohneMayorSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 1,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Rollett",
+        "name": "Rollett",
+        "name_kr": "롤렛",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Rollett"
+            },
+            {
+                "name": "Skin1",
+                "file": "RollettSkin1"
+            },
+            {
+                "name": "Skin3",
+                "file": "RollettSkin3"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Rude",
+        "name": "Rude",
+        "name_kr": "루드",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Rude"
+            },
+            {
+                "name": "Skin1",
+                "file": "RudeSkin1"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Rufo",
+        "name": "Rufo",
+        "name_kr": "루포",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Rufo"
+            },
+            {
+                "name": "Skin1",
+                "file": "RufoSkin1"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Sari",
+        "name": "Sari",
+        "name_kr": "사리",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Sari"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 1,
+        "race": 4,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Scizor",
+        "name": "Scizor",
+        "name_kr": "시저",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Scizor"
+            },
+            {
+                "name": "Skin1",
+                "file": "ScizorSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Selline",
+        "name": "Selline",
+        "name_kr": "셀리네",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Selline"
+            },
+            {
+                "name": "Skin1",
+                "file": "SellineSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "SellineSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "SellineSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "SellineSkin4"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Shady",
+        "name": "Shady",
+        "name_kr": "셰이디",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Shady"
+            },
+            {
+                "name": "Skin1",
+                "file": "ShadySkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ShadySkin2"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "ShadyTwisted",
+        "name": "ShadyTwisted",
+        "name_kr": "셰이디(역전)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "ShadyTwisted"
+            },
+            {
+                "name": "Skin1",
+                "file": "ShadyTwistedSkin1"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Shasha",
+        "name": "Shasha",
+        "name_kr": "샤샤",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Shasha"
+            },
+            {
+                "name": "Skin1",
+                "file": "ShashaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ShashaSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Sherum",
+        "name": "Sherum",
+        "name_kr": "셰럼",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Sherum"
+            },
+            {
+                "name": "Skin1",
+                "file": "SherumSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "SherumSkin2"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Shoupan",
+        "name": "Shoupan",
+        "name_kr": "슈팡",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Shoupan"
+            },
+            {
+                "name": "Skin1",
+                "file": "ShoupanSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ShoupanSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 2,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Silphir",
+        "name": "Silphir",
+        "name_kr": "실피르",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Silphir"
+            },
+            {
+                "name": "Skin1",
+                "file": "SilphirSkin1"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 2,
+        "race": 0,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Sist",
+        "name": "Sist",
+        "name_kr": "시스트",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Sist"
+            },
+            {
+                "name": "Skin1",
+                "file": "SistSkin1"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Snorky",
+        "name": "Snorky",
+        "name_kr": "스노키",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Snorky"
+            },
+            {
+                "name": "Skin1",
+                "file": "SnorkySkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "SnorkySkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Speaki",
+        "name": "Speaki",
+        "name_kr": "스피키",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Speaki"
+            },
+            {
+                "name": "Skin1",
+                "file": "SpeakiSkin1"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 2,
+        "race": 4,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "SpeakiMaid",
+        "name": "SpeakiMaid",
+        "name_kr": "스피키(메이드)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "SpeakiMaid"
+            },
+            {
+                "name": "Skin1",
+                "file": "SpeakiMaidSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "SpeakiMaidSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 0,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Suro",
+        "name": "Suro",
+        "name_kr": "슈로",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Suro"
+            },
+            {
+                "name": "Skin1",
+                "file": "SuroSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "SuroSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 3
+    },
+    {
+        "id": "Sylla",
+        "name": "Sylla",
+        "name_kr": "실라",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Sylla"
+            },
+            {
+                "name": "Skin1",
+                "file": "SyllaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "SyllaSkin2"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Taida",
+        "name": "Taida",
+        "name_kr": "타이다",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Taida"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 1,
+        "race": 1,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Tig",
+        "name": "Tig",
+        "name_kr": "티그",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Tig"
+            },
+            {
+                "name": "Skin1",
+                "file": "TigSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "TigSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 1
+    },
+    {
+        "id": "TigHero",
+        "name": "TigHero",
+        "name_kr": "티그(영웅)",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "TigHero"
+            },
+            {
+                "name": "Skin1",
+                "file": "TigHeroSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "TigHeroSkin2"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 3,
+        "race": 3,
+        "attackType": 1,
+        "position": 3,
+        "unitClass": 1
+    },
+    {
+        "id": "Ui",
+        "name": "Ui",
+        "name_kr": "우이",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Ui"
+            },
+            {
+                "name": "Skin1",
+                "file": "UiSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "UiSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "UiSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "UiSkin4"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 5,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 3
+    },
+    {
+        "id": "Uros",
+        "name": "Uros",
+        "name_kr": "우로스",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Uros"
+            },
+            {
+                "name": "Skin1",
+                "file": "UrosSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "UrosSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "UrosSkin3"
+            }
+        ],
+        "initialStar": 3,
+        "race": 3,
+        "personality": 5,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 3
+    },
+    {
+        "id": "Vela",
+        "name": "Vela",
+        "name_kr": "벨라",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Vela"
+            },
+            {
+                "name": "Skin1",
+                "file": "VelaSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "VelaSkin2"
+            }
+        ],
+        "personality": 2,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Velvet",
+        "name": "Velvet",
+        "name_kr": "벨벳",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Velvet"
+            },
+            {
+                "name": "Skin1",
+                "file": "VelvetSkin1"
+            }
+        ],
+        "personality": 0,
+        "initialStar": 3,
+        "race": 6,
+        "attackType": 1,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "Veroo",
+        "name": "Veroo",
+        "name_kr": "베루",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Veroo"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 1,
+        "race": 4,
+        "attackType": 1,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Vivi",
+        "name": "Vivi",
+        "name_kr": "비비",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Vivi"
+            },
+            {
+                "name": "Skin1",
+                "file": "ViviSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "ViviSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "ViviSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "ViviSkin4"
+            },
+            {
+                "name": "Skin5",
+                "file": "ViviSkin5"
+            }
+        ],
+        "personality": 4,
+        "initialStar": 3,
+        "race": 0,
+        "attackType": 0,
+        "position": 0,
+        "unitClass": 2
+    },
+    {
+        "id": "xXionx",
+        "name": "xXionx",
+        "name_kr": "시온 더 다크불릿",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "xXionx"
+            },
+            {
+                "name": "Skin1",
+                "file": "xXionxSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "xXionxSkin2"
+            },
+            {
+                "name": "Skin3",
+                "file": "xXionxSkin3"
+            },
+            {
+                "name": "Skin4",
+                "file": "xXionxSkin4"
+            },
+            {
+                "name": "Skin5",
+                "file": "xXionxSkin5"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 4,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    },
+    {
+        "id": "Yomi",
+        "name": "Yomi",
+        "name_kr": "요미",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Yomi"
+            },
+            {
+                "name": "Skin1",
+                "file": "YomiSkin1"
+            },
+            {
+                "name": "Skin2",
+                "file": "YomiSkin2"
+            }
+        ],
+        "personality": 1,
+        "initialStar": 3,
+        "race": 7,
+        "attackType": 0,
+        "position": 1,
+        "unitClass": 1
+    },
+    {
+        "id": "Yumimi",
+        "name": "Yumimi",
+        "name_kr": "유미미",
+        "skins": [
+            {
+                "name": "Default",
+                "file": "Yumimi"
+            }
+        ],
+        "personality": 3,
+        "initialStar": 1,
+        "race": 3,
+        "attackType": 1,
+        "position": 2,
+        "unitClass": 1
+    }
+]

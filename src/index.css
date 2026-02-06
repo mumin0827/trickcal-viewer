@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@plugin "tailwindcss-animate";
+
+@theme {
+  --font-one-mobile: "ONE Mobile POP", sans-serif;
+
+  /* 핵심 색상 */
+  --color-tc-bg: var(--tc-bg);
+  --color-tc-panel: var(--tc-panel);
+  --color-tc-green: var(--tc-green);
+  --color-tc-green-2: var(--tc-green-2);
+  --color-tc-green-dark: var(--tc-green-dark);
+  --color-tc-line-soft: var(--tc-line-soft);
+  --color-tc-shadow: var(--tc-shadow);
+
+  /* 시맨틱 색상 */
+  --color-header-bg: var(--header-bg);
+  --color-footer-bg: var(--footer-bg);
+  --color-header-border: var(--header-border);
+
+  --color-text-main: var(--text-main);
+  --color-text-sub: var(--text-sub);
+  --color-text-disabled: var(--text-disabled);
+
+  --color-card-bg-start: var(--card-bg-start);
+  --color-card-bg-end: var(--card-bg-end);
+
+  --color-controls-bg-start: var(--controls-bg-start);
+  --color-controls-bg-end: var(--controls-bg-end);
+
+  --color-btn-bg: var(--btn-bg);
+  --color-btn-border: var(--btn-border);
+  --color-btn-text: var(--btn-text);
+
+  --color-input-bg: var(--input-bg);
+  --color-dropdown-bg: var(--dropdown-bg);
+
+  --color-modal-bg-start: var(--modal-bg-start);
+  --color-modal-bg-end: var(--modal-bg-end);
+
+  --color-char-item-bg: var(--char-item-bg);
+  --color-char-item-border: var(--char-item-border);
+  --color-char-img-bg: var(--char-img-bg);
+
+  /* 성격 색상 */
+  --color-personality-cool: var(--personality-cool);
+  --color-personality-gloomy: var(--personality-gloomy);
+  --color-personality-jolly: var(--personality-jolly);
+  --color-personality-mad: var(--personality-mad);
+  --color-personality-naive: var(--personality-naive);
+  --color-personality-resonance: var(--personality-resonance);
+
+  /* 그림자 */
+  --shadow-tc-card: var(--tc-card-shadow);
+  --shadow-tc-btn: var(--tc-btn-shadow);
+  --shadow-tc-btn-active: var(--tc-btn-active);
+
+  /* 반경 - 기존 둥근 모서리에 맞춤 */
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+}
+
+@font-face {
+  font-family: "ONE Mobile POP";
+  src: url("/font/ONE Mobile POP.ttf") format("truetype"),
+       url("/font/ONE Mobile POP OTF.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+  테마 변수 정의
+  실제 값을 보유하며 .dark 클래스에 따라 전환됨
+*/
+:root {
+  /* --- 핵심 색상 (라이트 기본값) --- */
+  --tc-bg: #eef7d6;
+  --tc-panel: #f8ffe9;
+  --tc-green: #7FC043;
+  --tc-green-2: #A3DF72;
+  --tc-green-dark: #4E8E2C;
+
+  --tc-line-soft: rgba(127, 192, 67, 0.35);
+  --tc-shadow: rgba(0, 0, 0, 0.12);
+
+  /* 그림자 */
+  --tc-card-shadow: 0 6px 0 rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.1);
+  --tc-btn-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  --tc-btn-active: 0 2px 0 rgba(0, 0, 0, 0.1);
+
+  /* --- 시맨틱 테마 변수 (라이트) --- */
+  --header-bg: rgba(250, 255, 238, 0.95);
+  --footer-bg: #faffee;
+  --header-border: rgba(127, 192, 67, 0.18);
+
+  --text-main: #333333;
+  --text-sub: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.4);
+
+  --card-bg-start: #ffffff;
+  --card-bg-end: #f1f9db;
+
+  --controls-bg-start: #f8ffe9;
+  --controls-bg-end: #e6f4c5;
+
+  --btn-bg: #ffffff;
+  --btn-border: rgba(0, 0, 0, 0.08);
+  --btn-text: #333333;
+
+  --input-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+
+  --modal-bg-start: #f8ffe9;
+  --modal-bg-end: #e9f6c7;
+
+  --char-item-bg: #ffffff;
+  --char-item-border: rgba(0, 0, 0, 0.15);
+  --char-img-bg: #ffffff;
+
+  --color-char-img-bg: #ffffff;
+
+  /* 성격 색상 */
+  --personality-cool: #83b9eb;
+  --personality-gloomy: #c683ec;
+  --personality-jolly: #ebdb83;
+  --personality-mad: #eb839a;
+  --personality-naive: #66c17c;
+  --personality-resonance: #ffffff;
+}
+
+:root.dark {
+  /* --- 핵심 색상 재정의 (다크) --- */
+  --tc-bg: #121212;
+  --tc-panel: #1e1e1e;
+  --tc-green: #6da63a;
+  --tc-green-2: #3a5c20;
+  --tc-green-dark: #8cc461;
+
+  --tc-line-soft: rgba(140, 196, 97, 0.2);
+  --tc-shadow: rgba(0, 0, 0, 0.4);
+
+  --tc-card-shadow: 0 6px 0 rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.4);
+  --tc-btn-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+  --tc-btn-active: 0 2px 0 rgba(0, 0, 0, 0.3);
+
+  /* --- 시맨틱 테마 변수 (다크) --- */
+  --header-bg: rgba(30, 30, 30, 0.95);
+  --footer-bg: #1e1e1e;
+  --header-border: rgba(255, 255, 255, 0.1);
+
+  --text-main: #e0e0e0;
+  --text-sub: rgba(255, 255, 255, 0.6);
+  --text-disabled: rgba(255, 255, 255, 0.4);
+
+  --card-bg-start: #2a2a2a;
+  --card-bg-end: #1a1a1a;
+
+  --controls-bg-start: #2c2c2c;
+  --controls-bg-end: #252525;
+
+  --btn-bg: #333333;
+  --btn-border: rgba(255, 255, 255, 0.1);
+  --btn-text: #e0e0e0;
+
+  --input-bg: #333333;
+  --dropdown-bg: #2c2c2c;
+
+  --modal-bg-start: #2c2c2c;
+  --modal-bg-end: #1e1e1e;
+
+  --char-item-bg: #333333;
+  --char-item-border: rgba(255, 255, 255, 0.1);
+  --char-img-bg: #2a2a2a;
+
+  /* 성격 색상 다크 */
+  --personality-cool: #83b9eb;
+  --personality-gloomy: #c683ec;
+  --personality-jolly: #ebdb83;
+  --personality-mad: #eb839a;
+  --personality-naive: #66c17c;
+  --personality-resonance: #ffffff;
+}
+
+/* 글로벌 리셋 및 베이스 스타일 */
+@layer base {
+  html, body {
+    @apply w-full min-h-screen m-0 p-0 overflow-x-hidden bg-tc-bg font-one-mobile;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    @apply w-full min-h-screen flex flex-col relative isolate bg-tc-bg text-text-main transition-colors duration-300;
+  }
+
+  /* 이미지 드래그 방지 */
+  img {
+    @apply select-none;
+    -webkit-user-drag: none;
+  }
+
+  button {
+    @apply select-none;
+  }
+}
+
+/* react-colorful theme tweaks */
+.react-colorful {
+  width: 100%;
+}
+
+.react-colorful__saturation,
+.react-colorful__hue,
+.react-colorful__alpha {
+  border-radius: 12px;
+}
+
+.react-colorful__saturation {
+  box-shadow: inset 0 0 0 1px var(--tc-line-soft);
+}
+
+.react-colorful__pointer {
+  border: 2px solid var(--tc-panel);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/*
+   호환성을 위해 점진적으로 교체되거나 유지될 레거시 클래스
+   현재로서는 핵심 레이아웃 클래스를 유지하되 가능한 경우 @apply를 사용하여 재작성
+*/
+
+.loading-container {
+  @apply absolute inset-0 flex justify-center items-center bg-tc-bg/60 backdrop-blur-[4px] z-[3500]
+         transition-all duration-500 ease-in-out opacity-100 visible;
+}
+
+.loading-container.fade-out {
+  @apply opacity-0 invisible pointer-events-none;
+}
+
+/* 애니메이션 키프레임 (젤리 점프) */
+@keyframes jelly-jump {
+    0% { transform: scale(1, 1) translateY(0); }
+    25% { transform: scale(1.25, 0.75) translateY(0); }
+    50% { transform: scale(0.85, 1.15) translateY(-20px); }
+    65% { transform: scale(1.05, 0.95) translateY(0); }
+    75% { transform: scale(0.95, 1.05) translateY(0); }
+    100% { transform: scale(1, 1) translateY(0); }
+}
+
+/* 엘레나 스프라이트 애니메이션 */
+@keyframes elena-walk {
+    from { background-position: 0% center; }
+    to { background-position: 133.3333% center; }
+}
+
+.animate-elena-sprite {
+    animation: elena-walk 0.4s steps(4) infinite;
+}
+
+.animate-jelly {
+    animation: jelly-jump 0.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-jelly {
+    animation: none;
+  }
+}
+
+/* 배경 패턴 애니메이션 */
+@keyframes move-bg-gpu {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(240px, 240px, 0); }
+}
+
+@keyframes wave-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+#root::before {
+  content: "";
+  @apply fixed -top-[240px] -left-[240px] w-[calc(100%+480px)] h-[calc(100%+480px)] z-[-1] pointer-events-none opacity-0 transition-opacity duration-300 hidden md:block;
+  background-image: url("/image/pattern/HeroLobbyPattern.svg");
+  background-repeat: repeat;
+  background-size: 240px 240px;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #root::before {
+    animation: move-bg-gpu 30s linear infinite;
+  }
+}
+
+#root:has(.app-container)::before {
+  @apply opacity-100;
+}
+
+.dark #root:has(.app-container)::before {
+  @apply opacity-10;
+}
+
+/* 트릭컬 스크롤바 */
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--tc-green);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    border-color: #2c2c2c;
+  }
+
+  /* Virtuoso 내부 스크롤러용 */
+  .custom-scrollbar [data-virtuoso-scroller="true"]::-webkit-scrollbar {
+    width: 12px;
+  }
+  .custom-scrollbar [data-virtuoso-scroller="true"]::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 8px;
+  }
+  .custom-scrollbar [data-virtuoso-scroller="true"]::-webkit-scrollbar-thumb {
+    background-color: var(--tc-green);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+  .dark .custom-scrollbar [data-virtuoso-scroller="true"]::-webkit-scrollbar-thumb {
+    border-color: #2c2c2c;
+  }
+}

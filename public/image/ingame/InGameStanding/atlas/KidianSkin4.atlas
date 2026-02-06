@@ -1,0 +1,327 @@
+KidianSkin4.png
+size:1024,512
+filter:Linear,Linear
+pma:true
+scale:0.5
+Apron
+bounds:929,199,85,71
+rotate:270
+Arm_L_1
+bounds:788,54,49,33
+offsets:14,19,73,82
+Arm_L_2
+bounds:663,59,47,50
+offsets:13,7,65,65
+Arm_L_Joint_1
+bounds:716,17,30,31
+offsets:18,17,65,65
+rotate:90
+Arm_L_Joint_2
+bounds:382,46,38,36
+offsets:13,14,65,65
+Arm_L_Joint_3
+bounds:865,32,40,44
+offsets:11,11,65,65
+rotate:90
+Arm_R_1
+bounds:438,55,50,30
+offsets:9,20,74,82
+Arm_R_2
+bounds:838,65,47,51
+offsets:5,6,65,65
+Arm_R_Joint_1
+bounds:831,24,39,39
+offsets:12,11,65,65
+Arm_R_Joint_2
+bounds:489,45,37,36
+offsets:14,14,65,65
+Arm_R_Joint_3
+bounds:472,244,41,40
+offsets:11,15,65,65
+Ball_L
+bounds:174,65,42,36
+Ball_R
+bounds:55,33,42,34
+Body
+bounds:856,184,79,100
+offsets:10,12,102,135
+Cara
+bounds:867,9,45,26
+Chest
+bounds:467,82,61,55
+CommonShadow
+bounds:669,150,48,16
+offsets:1,1,50,18
+Dagger_Weapon
+bounds:188,103,32,88
+offsets:0,1,33,90
+rotate:90
+Dragon_Ear
+bounds:593,70,43,37
+offsets:162,34,241,156
+Emo_Blush
+bounds:111,103,77,53
+offsets:63,28,241,156
+rotate:180
+Emo_Sad
+bounds:2,103,77,53
+offsets:63,28,241,156
+Eye_Brow_L_ Idle
+bounds:601,11,32,27
+offsets:103,75,241,156
+Eye_Brow_L_Angry
+bounds:494,17,32,27
+offsets:103,75,241,156
+Eye_Brow_L_Blank
+bounds:376,18,32,27
+offsets:103,75,241,156
+Eye_Brow_L_Haapy
+bounds:132,19,32,27
+offsets:103,75,241,156
+Eye_Brow_R_ Angry
+bounds:956,2,27,24
+offsets:61,75,241,156
+Eye_Brow_R_ Blank
+bounds:18,4,27,24
+offsets:61,75,241,156
+Eye_Brow_R_ Haapy
+bounds:984,6,27,24
+offsets:61,75,241,156
+Eye_Brow_R_ Idle
+bounds:347,10,27,24
+offsets:61,75,241,156
+Eye_L_  Angry
+bounds:278,112,35,23
+offsets:102,47,241,156
+Eye_L_ Blank
+bounds:438,89,35,29
+offsets:102,42,241,156
+rotate:90
+Eye_L_ Close
+bounds:673,32,42,26
+offsets:102,44,241,156
+Eye_L_ Idle
+bounds:168,31,35,33
+offsets:102,42,241,156
+Eye_L_ Sad
+bounds:527,35,35,35
+offsets:102,38,241,156
+Eye_L_Groggry
+bounds:910,31,35,34
+offsets:102,40,241,156
+Eye_L_Happy
+bounds:2,29,42,23
+offsets:102,47,241,156
+Eye_L_Sad2
+bounds:246,38,35,35
+offsets:102,38,241,156
+rotate:180
+Eye_Lashe_L_1_  Angry
+bounds:328,60,53,27
+offsets:94,55,241,156
+Eye_Lashe_L_1_  Blank
+bounds:954,63,53,27
+offsets:94,55,241,156
+Eye_Lashe_L_1_ Idle
+bounds:217,74,53,27
+offsets:94,55,241,156
+Eye_Lashe_L_2
+bounds:2,272,29,12
+offsets:105,42,241,156
+Eye_Lashe_R_1_ Angry
+bounds:122,47,46,28
+offsets:46,54,241,156
+Eye_Lashe_R_1_ Blank
+bounds:329,34,46,24
+offsets:46,58,241,156
+Eye_Lashe_R_1_Idle
+bounds:282,34,46,24
+offsets:46,58,241,156
+Eye_Lashe_R_2
+bounds:631,198,25,13
+offsets:59,41,241,156
+Eye_R_  Angry
+bounds:795,133,28,24
+offsets:58,42,241,156
+Eye_R_  Blank
+bounds:634,7,28,28
+offsets:58,42,241,156
+rotate:90
+Eye_R_  Close
+bounds:913,11,33,20
+offsets:53,46,241,156
+Eye_R_ Idle
+bounds:98,18,28,32
+offsets:58,42,241,156
+rotate:90
+Eye_R_ Sad
+bounds:563,8,28,31
+offsets:58,39,241,156
+rotate:90
+Eye_R_ Sad2
+bounds:246,9,28,31
+offsets:58,39,241,156
+rotate:270
+Eye_R_Groggry
+bounds:456,25,30,32
+offsets:56,40,241,156
+rotate:90
+Eye_R_Happy
+bounds:563,36,33,37
+offsets:53,41,241,156
+rotate:90
+Hair_1
+bounds:676,208,69,80
+rotate:270
+Hair_2
+bounds:2,53,93,103
+offsets:0,0,94,103
+rotate:270
+Hair_Ac
+bounds:483,219,26,30
+Hair_B
+bounds:2,154,185,130
+Hair_F_1
+bounds:84,64,38,88
+rotate:90
+Hair_F_2
+bounds:714,105,80,79
+rotate:180
+Hair_L
+bounds:559,108,75,140
+rotate:90
+Hair_R
+bounds:712,82,70,131
+offsets:0,0,70,132
+rotate:270
+Hair_Tie
+bounds:533,72,57,58
+rotate:90
+Hand_L_1
+bounds:947,27,32,36
+offsets:16,13,65,65
+rotate:90
+Hand_L_2
+bounds:207,31,33,38
+offsets:17,15,65,65
+rotate:90
+Hand_L_3
+bounds:984,30,32,38
+offsets:15,11,65,65
+rotate:90
+Hand_L_4
+bounds:621,36,40,50
+offsets:15,3,65,65
+rotate:270
+Hand_R_1
+bounds:16,74,29,33
+offsets:18,15,65,65
+rotate:90
+Hand_R_2
+bounds:413,26,31,40
+offsets:15,16,65,65
+rotate:90
+Hand_R_3
+bounds:802,19,27,36
+offsets:20,12,65,65
+Hand_R_4
+bounds:758,33,30,44
+offsets:16,10,65,65
+rotate:90
+Head_Color
+bounds:383,136,148,96
+offsets:37,16,241,156
+rotate:90
+Head_Line
+bounds:286,136,148,96
+offsets:37,16,241,156
+rotate:270
+Head_Shadow
+bounds:188,136,148,96
+offsets:37,16,241,156
+rotate:90
+Horn_L
+bounds:712,49,54,33
+Horn_R
+bounds:277,64,49,44
+Knee_L
+bounds:409,7,26,19
+Knee_R
+bounds:409,7,26,19
+Leg_L_1
+bounds:846,116,55,87
+offsets:33,14,118,119
+rotate:90
+Leg_L_2
+bounds:315,88,52,67
+offsets:35,9,119,101
+rotate:270
+Leg_L_Ac_1
+bounds:1001,249,11,35
+Leg_L_Ac_2
+bounds:1002,212,10,35
+Leg_L_Joint
+bounds:383,83,52,55
+offsets:36,21,119,91
+rotate:90
+Leg_R_1
+bounds:934,143,55,88
+offsets:33,14,118,119
+rotate:90
+Leg_R_2
+bounds:955,91,52,67
+offsets:36,9,119,101
+rotate:270
+Leg_R_Joint
+bounds:903,65,51,51
+offsets:35,22,119,91
+rotate:270
+Mouth_ Angry
+bounds:205,7,28,24
+offsets:82,25,241,156
+Mouth_ Blank
+bounds:636,79,28,24
+offsets:82,25,241,156
+rotate:90
+Mouth_ Close
+bounds:45,8,28,24
+offsets:82,25,241,156
+Mouth_ Idle
+bounds:772,8,28,24
+offsets:82,25,241,156
+Mouth_ Sad
+bounds:686,8,28,24
+offsets:82,25,241,156
+Mouth_ Smile
+bounds:317,10,28,24
+offsets:82,25,241,156
+Mouth_ Talk
+bounds:534,10,28,24
+offsets:82,25,241,156
+Neck
+bounds:702,259,24,25
+offsets:43,101,102,135
+Skirt
+bounds:581,212,123,72
+Tail_2_Ac _1
+bounds:163,267,17,17
+Tail_2_Ac _2
+bounds:546,146,138,122
+offsets:0,0,151,122
+rotate:270
+Tail_2_Ac _3
+bounds:278,15,37,19
+offsets:0,1,37,21
+Tail_2_Ac _4
+bounds:170,12,33,18
+Tail_Ac
+bounds:661,166,147,118
+rotate:180
+Tear_1
+bounds:750,271,13,13
+Wing_L_Ac
+bounds:480,128,156,81
+rotate:90
+Wing_R_Ac
+bounds:793,158,126,80
+rotate:270

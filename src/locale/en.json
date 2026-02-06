@@ -1,0 +1,92 @@
+{
+  "header": {
+    "title": "Trickcal Apostle Viewer",
+    "export": "Export",
+    "recording": "Exporting...",
+    "changeTheme": "Change Theme"
+  },
+  "viewer": {
+    "selectCharacter": "Please select an apostle",
+    "studio": "Studio",
+    "appreciation": "Viewer Mode",
+    "exitAppreciation": "Exit Viewer Mode (ESC)",
+    "standing": "Standing",
+    "ingame": "In-game",
+    "characterSelect": "Select Apostle",
+    "extracting": "Exporting...",
+    "exit": "Exit",
+    "exportStarted": "Starting export. Please wait a moment.",
+    "exportSuccess": "Export completed successfully!",
+    "exportFailed": "Export failed. Please try again."
+  },
+  "studio": {
+    "settingsTitle": "Export Settings",
+    "exportConfirmTitle": "Confirm Export",
+    "exportConfirmDesc": "Proceed with the current settings?",
+    "resolution": "Resolution",
+    "resLow": "Low",
+    "resVeryLow": "Very Low",
+    "resMedium": "Med",
+    "resHigh": "High",
+    "format": "Format",
+    "fps": "Frames (FPS)",
+    "background": "Background",
+    "backgroundMp4Hint": "MP4 does not support transparency.",
+    "exportFrame": "Canvas Frame",
+    "exportFrameOn": "On",
+    "exportFrameOff": "Off",
+    "back": "Back",
+    "save": "Export"
+  },
+  "selector": {
+    "title": "Apostle List",
+    "searchPlaceholder": "Search by name...",
+    "noResults": "No results found",
+    "showAll": "Show All",
+    "totalCount": "Total {{count}}",
+    "openLabel": "Open Apostle List",
+    "filterTitle": "Filter Apostles",
+    "filterDescription": "Choose sort and filter options for the apostle list.",
+    "tabSort": "Sort",
+    "tabFilter": "Filter",
+    "sortName": "Name",
+    "sortStar": "Star Grade",
+    "sortPersonality": "Personality",
+    "sortRace": "Race",
+    "filterPersonality": "Personality",
+    "filterRace": "Race",
+    "filterStars": "Star Grade",
+    "reset": "Reset",
+    "apply": "Apply",
+    "filterResult": "{{count}} results"
+  },
+  "personality": {
+    "Cool": "Cool",
+    "Gloomy": "Gloomy",
+    "Jolly": "Jolly",
+    "Mad": "Mad",
+    "Naive": "Naive",
+    "Resonance": "Resonance"
+  },
+  "race": {
+    "Dragon": "Dragon",
+    "Elf": "Elf",
+    "Fairy": "Fairy",
+    "Furry": "Furry",
+    "Ghost": "Ghost",
+    "Spirit": "Spirit",
+    "Witch": "Witch",
+    "Mystic": "Mystic"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "An unexpected error has occurred.",
+    "retry": "Try again",
+    "error404Title": "Page Not Found",
+    "error404Message": "The page you are looking for might have been moved or deleted.",
+    "goHome": "Go Home"
+  }
+}
