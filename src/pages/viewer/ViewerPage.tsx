@@ -38,13 +38,11 @@ const ViewerPage: React.FC = () => {
 
     const { setHeaderActions } = useHeaderStore();
 
-    // 모드 및 캔버스 상태
     const [mode, setMode] = useState<'view' | 'studio' | 'appreciation'>('view');
     const [viewMode, setViewMode] = useState<'standing' | 'ingame'>('standing');
     const [scale, setScale] = useState(0.85);
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
-    // Spine 플레이어 상태 (상위로 올림)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [playerInstance, setPlayerInstance] = useState<any>(null);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -54,7 +52,6 @@ const ViewerPage: React.FC = () => {
     const [currentSpineSkin, setCurrentSpineSkin] = useState<string>('Normal');
     const [duration, setDuration] = useState(0);
 
-    // Spine 제어기 상태
     const [spineController, setSpineController] = useState<{
         handlePlayPause: () => void;
         handleAnimationChange: (anim: string) => void;
@@ -66,7 +63,6 @@ const ViewerPage: React.FC = () => {
         handlePrevMotion: () => void;
     } | null>(null);
 
-    // 사이드바 및 내보내기 설정 상태
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [showExportConfirm, setShowExportConfirm] = useState(false);
     const [exportFormat, setExportFormat] = useState<'gif' | 'mp4' | 'zip' | 'png'>('gif');
@@ -81,7 +77,7 @@ const ViewerPage: React.FC = () => {
     const hasIngameMotion = selectedSkin?.hasIngame !== false;
     const effectiveViewMode = hasIngameMotion ? viewMode : 'standing';
 
-    // 사도나 스킨 변경 시 위치/배율 초기화
+    // 사도나 스킨이 바뀔 때 위치랑 배율 초기화
     useEffect(() => {
         const timer = window.setTimeout(() => {
             setScale(0.85);
@@ -101,6 +97,7 @@ const ViewerPage: React.FC = () => {
     const exportFrameSize = stageSize
         ? Math.round(Math.min(stageSize.width, stageSize.height) * 0.7)
         : 0;
+
     const exportFrame = stageSize && exportFrameSize > 0
         ? (() => {
             const baseX = Math.round((stageSize.width - exportFrameSize) / 2);
@@ -115,9 +112,9 @@ const ViewerPage: React.FC = () => {
             };
         })()
         : null;
+
     const backgroundLabel = `${backgroundBaseColor.toUpperCase()} (${Math.round(effectiveBackgroundOpacity * 100)}%)`;
 
-    // 초기 로딩 애니메이션 제어
     useEffect(() => {
         const timer = window.setTimeout(() => {
             setIsExiting(!isLoading);
@@ -133,7 +130,6 @@ const ViewerPage: React.FC = () => {
     }, [isLoading]);
 
 
-    // 레코더(추출) 훅 사용
     const { isRecording, handleExtract } = useRecorder(
         selectedSado,
         selectedSkin,
@@ -147,7 +143,6 @@ const ViewerPage: React.FC = () => {
         exportFrame
     );
 
-    // 헤더 액션 동기화
     useEffect(() => {
         setHeaderActions({
             onOpenExport: () => setMode('studio'),
@@ -156,7 +151,6 @@ const ViewerPage: React.FC = () => {
         });
     }, [isRecording, selectedSado, setHeaderActions]);
 
-    // 추출 중 로딩 상태 제어
     useEffect(() => {
         const timer = window.setTimeout(() => {
             if (isRecording) {
@@ -178,15 +172,14 @@ const ViewerPage: React.FC = () => {
         }
     }, [isRecording, showRecLoading]);
 
-    // 추출 실행 함수
     const performExport = async () => {
         const fps = exportFormat === 'gif' ? GIF_STEPS[gifStepIndex].actual : zipFps;
-        
+
         setShowExportConfirm(false);
         toast.info(t('viewer.exportStarted'));
-        
+
         const isSuccess = await handleExtract(exportFormat, fps, exportResolution, exportBackground);
-        
+
         if (isSuccess) {
             toast.success(t('viewer.exportSuccess'));
         } else {
@@ -194,7 +187,7 @@ const ViewerPage: React.FC = () => {
         }
     };
 
-    // 키보드 단축키 설정
+    // 키보드 단축키 설정 - 수정
     useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
             if (e.code === "Escape") {
@@ -213,18 +206,19 @@ const ViewerPage: React.FC = () => {
                     setScale(0.85);
                 }
             }
-            
-            // Spine 제어 관련 단축키
+
             if (spineController) {
+                const target = e.target as HTMLElement;
+                const isTyping = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+
                 if (e.code === "Space") {
-                    const target = e.target as HTMLElement;
-                    if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA') {
+                    if (!isTyping) {
                         e.preventDefault();
                         spineController.handlePlayPause();
                     }
                 }
-                if (e.code === "ArrowLeft") spineController.handlePrevMotion();
-                if (e.code === "ArrowRight") spineController.handleNextMotion();
+                if (e.code === "ArrowLeft" && !isTyping) spineController.handlePrevMotion();
+                if (e.code === "ArrowRight" && !isTyping) spineController.handleNextMotion();
             }
 
             if (e.code === "Tab") {
@@ -238,8 +232,7 @@ const ViewerPage: React.FC = () => {
 
     return (
         <div className="w-full h-[calc(100vh-56px-50px)] md:h-[calc(100vh-64px-50px)] relative overflow-hidden app-container bg-[#f0f0f000]">
-            {/* Spine 캔버스 */}
-            <SpineCanvas 
+            <SpineCanvas
                 selectedSado={selectedSado}
                 selectedSkin={selectedSkin}
                 viewMode={effectiveViewMode}
@@ -277,10 +270,10 @@ const ViewerPage: React.FC = () => {
                 setSpineController={setSpineController}
             />
 
-            {/* 사도 선택 안내 문구 */}
+            {/* 사도 선택하라는 안내 */}
             <AnimatePresence>
                 {!selectedSado && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
@@ -293,7 +286,7 @@ const ViewerPage: React.FC = () => {
                 )}
             </AnimatePresence>
 
-            {/* 물결 배경 레이어 (중간) */}
+            {/* 물결 배경 */}
             <AnimatePresence>
                 {!isInteractiveMode && (
                     <motion.div
@@ -308,16 +301,16 @@ const ViewerPage: React.FC = () => {
                 )}
             </AnimatePresence>
 
-            {/* 뷰어 모드 종료 버튼 */}
+            {/* 감상 모드 종료 버튼 */}
             <AnimatePresence>
                 {mode === 'appreciation' && (
-                    <motion.div 
+                    <motion.div
                         className="absolute bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}
                     >
-                        <Button 
+                        <Button
                             variant="secondary"
                             className="rounded-full shadow-lg border-[2px] border-white/50 bg-black/50 text-white hover:bg-black/70 px-6 backdrop-blur-md"
                             onClick={() => {
@@ -332,7 +325,7 @@ const ViewerPage: React.FC = () => {
                 )}
             </AnimatePresence>
 
-            {/* 스튜디오 툴바 + 설정 패널 */}
+            {/* 스튜디오 패널 */}
             <AnimatePresence>
                 {mode === 'studio' && (
                     <motion.div
@@ -366,10 +359,10 @@ const ViewerPage: React.FC = () => {
                 )}
             </AnimatePresence>
 
-            {/* 내보내기 확인 모달 */}
+            {/* 내보내기 확인 팝업 */}
             <AnimatePresence>
                 {mode === 'studio' && showExportConfirm && (
-                    <motion.div 
+                    <motion.div
                         className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -417,14 +410,14 @@ const ViewerPage: React.FC = () => {
                                 </div>
 
                                 <div className="flex gap-3 pt-2 mt-1 border-t border-tc-line-soft">
-                                    <Button 
-                                        variant="secondary" 
+                                    <Button
+                                        variant="secondary"
                                         className="flex-1"
                                         onClick={() => setShowExportConfirm(false)}
                                     >
                                         {t('common.cancel')}
                                     </Button>
-                                    <Button 
+                                    <Button
                                         className="flex-[2] bg-tc-green hover:bg-tc-green-dark text-white"
                                         onClick={() => performExport()}
                                         disabled={isRecording}
@@ -438,8 +431,7 @@ const ViewerPage: React.FC = () => {
                 )}
             </AnimatePresence>
 
-            {/* 메인 컨트롤 UI */}
-            <ViewerControls 
+            <ViewerControls
                 mode={mode}
                 setMode={setMode}
                 viewMode={viewMode}
@@ -462,7 +454,6 @@ const ViewerPage: React.FC = () => {
                 setScale={setScale}
             />
 
-            {/* 사도 선택 사이드바(서랍) */}
             <SadoSelector
                 isOpen={isSidebarOpen}
                 setIsOpen={setIsSidebarOpen}
@@ -482,7 +473,6 @@ const ViewerPage: React.FC = () => {
                 setSortAsc={setSortAsc}
             />
 
-            {/* 로딩 인디케이터 */}
             {showLoading && <Loading isExiting={isExiting} />}
             {showRecLoading && <Loading message={t('viewer.extracting')} isExiting={isRecExiting} />}
         </div>
